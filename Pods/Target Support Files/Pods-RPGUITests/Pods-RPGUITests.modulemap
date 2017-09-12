@@ -1,0 +1,6 @@
+framework module Pods_RPGUITests {
+  umbrella header "Pods-RPGUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
