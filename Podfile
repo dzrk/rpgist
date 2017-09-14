@@ -7,6 +7,8 @@ target 'RPG' do
 
   # Pods for RPG
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   target 'RPGTests' do
     inherit! :search_paths

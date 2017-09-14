@@ -362,7 +362,7 @@
         <!--Hero profile-->
         <scene sceneID="oES-b5-wUQ">
             <objects>
-                <viewController title="Hero profile" id="5ea-es-uA5" sceneMemberID="viewController">
+                <viewController title="Hero profile" id="5ea-es-uA5" customClass="HeroViewController" customModule="RPG" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qjc-ya-A5N"/>
                         <viewControllerLayoutGuide type="bottom" id="BRQ-8m-nay"/>
@@ -389,7 +389,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-ps-eCH">
                                 <rect key="frame" x="210" y="72" width="154" height="162"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zeus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMJ-Fj-G8D">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMJ-Fj-G8D">
                                         <rect key="frame" x="8" y="8" width="146" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="BCn-hj-qYb"/>
@@ -409,7 +409,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-Kd-g9d">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-Kd-g9d">
                                         <rect key="frame" x="25" y="79" width="104" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="104" id="0nD-wl-2sb"/>
@@ -444,7 +444,7 @@
                                     <constraint firstItem="iEo-p9-s7A" firstAttribute="leading" secondItem="RZd-ps-eCH" secondAttribute="leading" constant="25" id="yEl-Oy-cpK"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="392/773 exp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhH-x4-kno">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 exp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhH-x4-kno">
                                 <rect key="frame" x="107" y="310" width="160" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="HAA-4u-NZl"/>
@@ -481,7 +481,14 @@
                             <constraint firstItem="zhH-x4-kno" firstAttribute="centerX" secondItem="xzv-ny-QTa" secondAttribute="centerX" id="p2n-ki-mId"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hhy-XK-ZRI"/>
+                    <navigationItem key="navigationItem" id="Hhy-XK-ZRI">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="ot1-Si-8dz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ExpLbl" destination="zhH-x4-kno" id="qRw-Iw-YWm"/>
+                        <outlet property="HeroLbl" destination="fMJ-Fj-G8D" id="wQ1-fj-GYp"/>
+                        <outlet property="LvlLbl" destination="xXT-Kd-g9d" id="WBp-7t-dA9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rz4-ce-ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

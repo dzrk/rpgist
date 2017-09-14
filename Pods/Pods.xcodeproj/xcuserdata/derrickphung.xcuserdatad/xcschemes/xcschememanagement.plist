@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00103D6C821BE85971C563025527BA5D</key>
+		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>266AE1506DAD13D34C0725E909C0C476</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31F371F3F6857F4BBE5B744E0620CE79</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>899007E2FBEF4D38F410F43F75ECAAF9</key>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
