@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321827D51F71FA1700F3B3DB /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */; };
 		3277B7AE1F6A61D5006C7785 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7AD1F6A61D5006C7785 /* AppDelegate.swift */; };
 		3277B7B01F6A61D5006C7785 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */; };
 		3277B7B21F6A61D5006C7785 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7B11F6A61D5006C7785 /* SecondViewController.swift */; };
@@ -21,7 +22,6 @@
 		3277B7EB1F6A633B006C7785 /* RewardCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */; };
 		3277B7ED1F6A634B006C7785 /* PopupSliderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */; };
 		3277B7F21F6A6385006C7785 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7F11F6A6385006C7785 /* Model.swift */; };
-		32F052ED1F6A785C00CA49E9 /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F052EC1F6A785C00CA49E9 /* TaskDetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
 		3277B7AA1F6A61D5006C7785 /* RPGistFrontEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPGistFrontEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3277B7AD1F6A61D5006C7785 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCustomCell.swift; sourceTree = "<group>"; };
 		3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupSliderController.swift; sourceTree = "<group>"; };
 		3277B7F11F6A6385006C7785 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		32F052EC1F6A785C00CA49E9 /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,7 @@
 				3277B7E81F6A6329006C7785 /* RewardCollectionViewController.swift */,
 				3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */,
 				3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */,
-				32F052EC1F6A785C00CA49E9 /* TaskDetailsController.swift */,
+				321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				3277B7B01F6A61D5006C7785 /* FirstViewController.swift in Sources */,
 				3277B7DE1F6A6278006C7785 /* PopupViewController.swift in Sources */,
 				3277B7F21F6A6385006C7785 /* Model.swift in Sources */,
-				32F052ED1F6A785C00CA49E9 /* TaskDetailsController.swift in Sources */,
+				321827D51F71FA1700F3B3DB /* TaskDetailsController.swift in Sources */,
 				3277B7EB1F6A633B006C7785 /* RewardCustomCell.swift in Sources */,
 				3277B7E91F6A6329006C7785 /* RewardCollectionViewController.swift in Sources */,
 			);
