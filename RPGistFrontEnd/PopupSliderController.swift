@@ -46,7 +46,7 @@ class PopupSliderController: UIViewController
     func calcTotalExp(){
         let diff = Int(difficulty.text!)
         let imp = Int(importance.text!)
-        totalExp.text = "\(diff!*imp!) exp"
+        totalExp.text = "Exp gained: \(diff!*imp!) exp"
     }
     
     override func viewDidLoad()
@@ -54,6 +54,7 @@ class PopupSliderController: UIViewController
         super.viewDidLoad()
         popupSlider.layer.cornerRadius = 10
         popupSlider.layer.masksToBounds = true
+        calcTotalExp()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
