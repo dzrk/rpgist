@@ -8,8 +8,12 @@
 
 import UIKit
 class PopupViewController: UIViewController{
-    @IBAction func closePopup(_ sender: Any) {
+    @IBAction func saveChanges(_ sender: Any) {
         dismiss(animated:true, completion:nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var popupView: UIView!
     
