@@ -16,7 +16,7 @@ TODO:
 
 - [x] Link exp with exp progress bar
 
-- [ ] Reward page (split collection view)
+- [x] Reward page (split collection view)
 
 - [ ] Tap background to escape popup view
 
