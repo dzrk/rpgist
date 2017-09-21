@@ -25,7 +25,7 @@ class PopupSliderController: UIViewController
     @IBAction func sliderDiffValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
         
-        difficulty.text = "\(currentValue)"
+        difficulty.text = "\(currentValue)%"
         calcTotalExp()
         
     }
@@ -33,7 +33,7 @@ class PopupSliderController: UIViewController
     @IBAction func sliderImpValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
         
-        importance.text = "\(currentValue)"
+        importance.text = "\(currentValue)%"
         calcTotalExp()
     }
     

@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
 
-        Auth.auth().signIn(withEmail: "test@derrick.com", password: "123456") { (user, error) in
-            if error == nil{
-                print(user?.email)
-            }else{
-                print(error)
-            }
-        }
+//        Auth.auth().signIn(withEmail: "test@derrick.com", password: "123456") { (user, error) in
+//            if error == nil{
+//                print(user?.email)
+//            }else{
+//                print(error)
+//            }
+//        }
         
         return true
     }

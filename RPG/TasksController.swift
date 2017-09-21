@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let schoolList: [String] = ["Study for iPhone", "Study for Capstone", "Study for C++"]
@@ -17,14 +18,15 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     let cellReuseIdentifier = "cell"
     let cellChosen = varPassed.catToTask
     var chosenList: [String] = []
-
+    var dbRef:DatabaseReference!
     
     // don't forget to hook this up from the storyboard
     @IBOutlet var taskView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        dbRef = Database.database().reference().child("user-details")
+        startObservingDB()
         // Register the table view cell class and its reuse id
         self.taskView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
@@ -32,23 +34,62 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         taskView.delegate = self
         taskView.dataSource = self
         self.title = cellChosen
-        switch cellChosen {
-            case "School":
-                chosenList = schoolList
-            case "Work":
-                chosenList = workList
-            case "Personal":
-                chosenList = personalList
-            case "Shopping":
-                chosenList = shoppingList
-            default:
-                print("NOPE")
+    }
+    
+    func startObservingDB (){
+        //        let userID = Auth.auth().currentUser?.uid
+        
+        dbRef.child("task").observe(.value, with: { (snapshot:DataSnapshot) in
+            var newTasks = [Task]()
+            
+            for item in snapshot.children {
+                let taskObject = Task(snapshot: item as! DataSnapshot)
+                if taskObject.cat == self.cellChosen{
+                    newTasks.append(taskObject)
+                }
+            }
+            
+            tasks = newTasks
+            
+            self.taskView.reloadData()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    @IBAction func addTask(sender: AnyObject) {
+        let taskAlert = UIAlertController(title: "New task", message: "Enter your task name", preferredStyle: .alert)
+        taskAlert.addTextField { (textField:UITextField) in
+            textField.placeholder = "New task name"
+        }
+        taskAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
+            if let taskContent = taskAlert.textFields?.first?.text {
+                let task = String(taskContent)
+                let ref = self.dbRef.child("task").child(taskContent)
+                let taskRef = ref.child("name")
+                let catRef = ref.child("cat")
+                taskRef.setValue(task)
+                catRef.setValue(self.cellChosen)
+                
+            }
+        }))
+        self.present(taskAlert, animated: true, completion: nil)
+        
+        
+    }
+    //swipe to remove task
+    func tableView(_ taskView: UITableView, commitforRowAtEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            
+            task.itemRef?.removeValue()
         }
     }
     
     // number of rows in table view
     func tableView(_ taskView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.chosenList.count
+        return tasks.count
+
     }
     
     // create a cell for each table view row
@@ -56,7 +97,9 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.taskView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         // set the text from the data model
-        cell.textLabel?.text = self.chosenList[indexPath.row]
+        if tasks[indexPath.row].cat == cellChosen{
+            cell.textLabel?.text = tasks[indexPath.row].name
+        }
         cell.textLabel?.textColor = UIColor.white
         cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
         let backgroundView = UIView()

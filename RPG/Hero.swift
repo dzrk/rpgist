@@ -25,7 +25,7 @@ struct Hero {
     init (snapshot:DataSnapshot) {
         key = snapshot.key
         itemRef = snapshot.ref
-        if let snap = snapshot.value as? NSDictionary, let userExp = snap["exp"] as? Int {
+        if let snap = snapshot.value as? NSDictionary, let userExp = snap["totalExp"] as? Int {
             exp = userExp
         }else {
             exp = 0

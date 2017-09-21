@@ -28,6 +28,7 @@
 		83C720331F6A29A400474501 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C720321F6A29A400474501 /* User.swift */; };
 		83C720351F6A2D8300474501 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C720341F6A2D8300474501 /* Hero.swift */; };
 		83C720371F6A349400474501 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C720361F6A349400474501 /* HeroViewController.swift */; };
+		83C720391F6A6C4400474501 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C720381F6A6C4400474501 /* Task.swift */; };
 		83F66A231F45827500B8CE3A /* TasksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66A221F45827500B8CE3A /* TasksController.swift */; };
 		A5068BDC44750E917C5B6D0C /* Pods_RPGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DE4CF21CB9D3830495F160 /* Pods_RPGTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		83C720321F6A29A400474501 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		83C720341F6A2D8300474501 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		83C720361F6A349400474501 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
+		83C720381F6A6C4400474501 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		83F66A221F45827500B8CE3A /* TasksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksController.swift; sourceTree = "<group>"; };
 		9BEDAB2D39670E88D5D32FB8 /* Pods-RPGUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPGUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RPGUITests/Pods-RPGUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AD6C087286634A467950F25A /* Pods-RPG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPG.release.xcconfig"; path = "Pods/Target Support Files/Pods-RPG/Pods-RPG.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				832EE71E1F51393F008568EA /* Model.swift */,
 				83C720321F6A29A400474501 /* User.swift */,
 				83C720341F6A2D8300474501 /* Hero.swift */,
+				83C720381F6A6C4400474501 /* Task.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				837321CA1F42691C00CBB174 /* FirstViewController.swift in Sources */,
 				832EE7231F51AF4E008568EA /* CustomCell.swift in Sources */,
 				832EE72D1F52A702008568EA /* RewardCollectionViewController.swift in Sources */,
+				83C720391F6A6C4400474501 /* Task.swift in Sources */,
 				832EE72F1F52A7AD008568EA /* RewardCustomCell.swift in Sources */,
 				83C720371F6A349400474501 /* HeroViewController.swift in Sources */,
 				83C720331F6A29A400474501 /* User.swift in Sources */,

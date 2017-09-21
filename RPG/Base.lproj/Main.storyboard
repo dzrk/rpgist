@@ -38,6 +38,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tdj-jf-5sa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="CFQ-vc-gYv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CFQ-vc-gYv" id="fEq-bh-YBw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewl-IG-DPJ">
                                 <rect key="frame" x="269" y="528" width="70" height="70"/>
@@ -56,7 +66,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="l0V-B1-sro" kind="presentation" id="UaO-Nz-mC6"/>
+                                    <action selector="addCategoryWithSender:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6zt-LJ-LFM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -283,6 +293,9 @@
                                         <integer key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTaskWithSender:" destination="W4Q-B2-lZD" eventType="touchUpInside" id="prz-H6-QjV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,7 +432,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="153 gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-KP-3lX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-KP-3lX">
                                         <rect key="frame" x="25" y="108" width="104" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Z0r-Yo-IQ0"/>
@@ -482,10 +495,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hhy-XK-ZRI">
-                        <barButtonItem key="leftBarButtonItem" title="Login" id="ot1-Si-8dz"/>
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="ot1-Si-8dz">
+                            <connections>
+                                <action selector="loginAndSignUpWithSender:" destination="5ea-es-uA5" id="ZaB-mB-NsT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ExpLbl" destination="zhH-x4-kno" id="qRw-Iw-YWm"/>
+                        <outlet property="GoldLbl" destination="7kY-KP-3lX" id="7kQ-A0-LwS"/>
                         <outlet property="HeroLbl" destination="fMJ-Fj-G8D" id="wQ1-fj-GYp"/>
                         <outlet property="LvlLbl" destination="xXT-Kd-g9d" id="WBp-7t-dA9"/>
                     </connections>
