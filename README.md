@@ -19,3 +19,7 @@ File Changes:
 - Modified HeroViewController
   - Look for marked modifications (//*********************************************************//)
   - Modified calcLevel function
+- Add RewardsTableViewController
+- Add RewardsTableViewCellController
+- Add CollectionViewCellController
+- Modified Model
