@@ -12,9 +12,9 @@ TODO:
   
 - [ ] Authentication
 
-- [ ] Exp/level algorithm
+- [x] Exp/level algorithm
 
-- [ ] Link exp with exp progress bar
+- [x] Link exp with exp progress bar
 
 - [ ] Reward page (split collection view)
 
