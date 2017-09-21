@@ -4,29 +4,24 @@
 
 TODO:
 
-Task detail page
-
-  Experience task detail
+- Task detail page
+  - [ ] Experience task detail
+  - [ ] Gold task detail 
+  - [ ] Due task detail (date picker)
+  - [ ] Desc task detail
   
-  Gold task detail 
-  
-  Due task detail (date picker)
-  
-  Desc task detail
-  
-Authentication
+- [ ] Authentication
 
-Exp/level algorithm
+- [ ] Exp/level algorithm
 
-Link exp with exp progress bar
+- [ ] Link exp with exp progress bar
 
-Reward page (split collection view)
+- [ ] Reward page (split collection view)
 
-Tap background to escape popup view
+- [ ] Tap background to escape popup view
 
-Colour scheme
+- [ ] Colour scheme
 
-Fix delete task gesture
-
+- [ ] Fix delete task gesture
 
 
