@@ -24,4 +24,4 @@ TODO:
 
 - [ ] Fix delete task gesture
 
-
+- [ ] Connect reward page to model
