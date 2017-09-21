@@ -2,12 +2,10 @@
 
 
 ### 21 September
-
 ---
 File Changes:
 
 - Add PopupDueDateController
-
 - TasksController swipe to remove task function:
 
       func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -17,3 +15,7 @@ File Changes:
       //      task.itemRef?.removeValue()
           }
       }
+      
+- Modified HeroViewController
+  - Look for marked modifications (//*********************************************************//)
+  - Modified calcLevel function
