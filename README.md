@@ -24,5 +24,9 @@ Reward page (split collection view)
 
 Tap background to escape popup view
 
+Colour scheme
+
+Fix delete task gesture
+
 
 
