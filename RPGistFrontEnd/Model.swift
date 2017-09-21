@@ -26,6 +26,22 @@ class Model
     
     var rewards = ["placeholder-theme"]
     
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    var mainColours = [UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0), UIColor.black, UIColor.red, UIColor.darkGray, UIColor.white, UIColor.lightGray, UIColor.yellow]
+    var secondaryColours = [UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0), UIColor.white, UIColor.lightGray, UIColor.yellow, UIColor.black, UIColor.red, UIColor.darkGray]
+    var profilePictures = ["Pic1", "Pic2", "Pic3", "Pic4", "Pic5", "Pic6", "Pic7"]
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
     var DescriptionLabel = ["Task name", "duration"]
     var ExperienceLabel = ["Exp: "]
     var RewardLabel = ["Reward: ", "Change Gold Reward"]

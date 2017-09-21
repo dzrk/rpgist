@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		321827D51F71FA1700F3B3DB /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */; };
+		324BDF5C1F7394A900F040C9 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF5B1F7394A900F040C9 /* HeroViewController.swift */; };
+		324BDF5E1F73957E00F040C9 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF5D1F73957E00F040C9 /* Hero.swift */; };
+		324BDF601F7395AF00F040C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF5F1F7395AF00F040C9 /* Task.swift */; };
+		324BDF621F7396D100F040C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF611F7396D100F040C9 /* User.swift */; };
+		324BDF641F739AFF00F040C9 /* PopupDueDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF631F739AFF00F040C9 /* PopupDueDateController.swift */; };
+		324BDF661F73C48200F040C9 /* RewardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF651F73C48200F040C9 /* RewardsTableViewController.swift */; };
+		324BDF681F73C52000F040C9 /* RewardsTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF671F73C52000F040C9 /* RewardsTableViewCellController.swift */; };
+		324BDF6A1F73D09C00F040C9 /* RewardsCollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF691F73D09C00F040C9 /* RewardsCollectionViewCellController.swift */; };
 		3277B7AE1F6A61D5006C7785 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7AD1F6A61D5006C7785 /* AppDelegate.swift */; };
 		3277B7B01F6A61D5006C7785 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */; };
 		3277B7B21F6A61D5006C7785 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277B7B11F6A61D5006C7785 /* SecondViewController.swift */; };
@@ -43,6 +51,14 @@
 
 /* Begin PBXFileReference section */
 		321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
+		324BDF5B1F7394A900F040C9 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
+		324BDF5D1F73957E00F040C9 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		324BDF5F1F7395AF00F040C9 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		324BDF611F7396D100F040C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		324BDF631F739AFF00F040C9 /* PopupDueDateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDueDateController.swift; sourceTree = "<group>"; };
+		324BDF651F73C48200F040C9 /* RewardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsTableViewController.swift; sourceTree = "<group>"; };
+		324BDF671F73C52000F040C9 /* RewardsTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsTableViewCellController.swift; sourceTree = "<group>"; };
+		324BDF691F73D09C00F040C9 /* RewardsCollectionViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsCollectionViewCellController.swift; sourceTree = "<group>"; };
 		3277B7AA1F6A61D5006C7785 /* RPGistFrontEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPGistFrontEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3277B7AD1F6A61D5006C7785 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +169,11 @@
 				3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */,
 				3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */,
 				321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */,
+				324BDF5B1F7394A900F040C9 /* HeroViewController.swift */,
+				324BDF631F739AFF00F040C9 /* PopupDueDateController.swift */,
+				324BDF651F73C48200F040C9 /* RewardsTableViewController.swift */,
+				324BDF671F73C52000F040C9 /* RewardsTableViewCellController.swift */,
+				324BDF691F73D09C00F040C9 /* RewardsCollectionViewCellController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -161,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				3277B7F11F6A6385006C7785 /* Model.swift */,
+				324BDF5D1F73957E00F040C9 /* Hero.swift */,
+				324BDF5F1F7395AF00F040C9 /* Task.swift */,
+				324BDF611F7396D100F040C9 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,16 +323,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324BDF5C1F7394A900F040C9 /* HeroViewController.swift in Sources */,
 				3277B7B21F6A61D5006C7785 /* SecondViewController.swift in Sources */,
 				3277B7E11F6A62A5006C7785 /* TasksController.swift in Sources */,
 				3277B7ED1F6A634B006C7785 /* PopupSliderController.swift in Sources */,
 				3277B7AE1F6A61D5006C7785 /* AppDelegate.swift in Sources */,
 				3277B7B01F6A61D5006C7785 /* FirstViewController.swift in Sources */,
+				324BDF621F7396D100F040C9 /* User.swift in Sources */,
 				3277B7DE1F6A6278006C7785 /* PopupViewController.swift in Sources */,
+				324BDF681F73C52000F040C9 /* RewardsTableViewCellController.swift in Sources */,
 				3277B7F21F6A6385006C7785 /* Model.swift in Sources */,
+				324BDF601F7395AF00F040C9 /* Task.swift in Sources */,
 				321827D51F71FA1700F3B3DB /* TaskDetailsController.swift in Sources */,
 				3277B7EB1F6A633B006C7785 /* RewardCustomCell.swift in Sources */,
 				3277B7E91F6A6329006C7785 /* RewardCollectionViewController.swift in Sources */,
+				324BDF661F73C48200F040C9 /* RewardsTableViewController.swift in Sources */,
+				324BDF6A1F73D09C00F040C9 /* RewardsCollectionViewCellController.swift in Sources */,
+				324BDF5E1F73957E00F040C9 /* Hero.swift in Sources */,
+				324BDF641F739AFF00F040C9 /* PopupDueDateController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

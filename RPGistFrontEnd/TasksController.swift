@@ -46,6 +46,33 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    @IBAction func addTask(sender: AnyObject) {
+        let taskAlert = UIAlertController(title: "New task", message: "Enter your task name", preferredStyle: .alert)
+        taskAlert.addTextField { (textField:UITextField) in
+            textField.placeholder = "New task name"
+        }
+        taskAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
+//            if let taskContent = taskAlert.textFields?.first?.text {
+//                let task = String(taskContent)
+//                let ref = self.dbRef.child("task").child(taskContent)
+//                let taskRef = ref.child("name")
+//                let catRef = ref.child("cat")
+//                taskRef.setValue(task)
+//                catRef.setValue(self.cellChosen)
+//            }
+        }))
+        self.present(taskAlert, animated: true, completion: nil)
+    }
+    
+    //swipe to remove task
+    func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            let task = tasks[indexPath.row]
+//            
+//            task.itemRef?.removeValue()
+        }
+    }
+    
     // number of rows in table view
     func tableView(_ taskView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chosenList.count

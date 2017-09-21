@@ -26,6 +26,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // don't forget to hook this up from the storyboard
     @IBOutlet var tableView: UITableView!
     
+    @IBAction func addCategory(sender: AnyObject) {
+        let catAlert = UIAlertController(title: "New category", message: "Enter your category", preferredStyle: .alert)
+        catAlert.addTextField { (textField:UITextField) in
+            textField.placeholder = "New category name"
+        }
+        catAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
+//            if let catContent = catAlert.textFields?.first?.text {
+//                let cat = String(catContent)
+//                
+//                let catRef = self.dbRef.child("category").child(catContent)
+//                
+//                catRef.setValue(cat)
+//                
+//            }
+        }))
+        self.present(catAlert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +53,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    //swipe to remove
+    func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //do something
+        }
     }
     
     // number of rows in table view
