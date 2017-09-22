@@ -23,6 +23,7 @@
 		837321D41F42691C00CBB174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837321D21F42691C00CBB174 /* LaunchScreen.storyboard */; };
 		837321DF1F42691C00CBB174 /* RPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321DE1F42691C00CBB174 /* RPGTests.swift */; };
 		837321EA1F42691C00CBB174 /* RPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321E91F42691C00CBB174 /* RPGUITests.swift */; };
+		838EA0791F739473008806E9 /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838EA0781F739473008806E9 /* TaskDetailsController.swift */; };
 		83C7202F1F64F3D800474501 /* PopupSliderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7202E1F64F3D800474501 /* PopupSliderController.swift */; };
 		83C720311F66CC5E00474501 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83C720301F66CC5E00474501 /* GoogleService-Info.plist */; };
 		83C720331F6A29A400474501 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C720321F6A29A400474501 /* User.swift */; };
@@ -72,6 +73,7 @@
 		837321E51F42691C00CBB174 /* RPGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		837321E91F42691C00CBB174 /* RPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGUITests.swift; sourceTree = "<group>"; };
 		837321EB1F42691C00CBB174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		838EA0781F739473008806E9 /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
 		83C7202E1F64F3D800474501 /* PopupSliderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupSliderController.swift; sourceTree = "<group>"; };
 		83C720301F66CC5E00474501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83C720321F6A29A400474501 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				832EE72E1F52A7AD008568EA /* RewardCustomCell.swift */,
 				83C7202E1F64F3D800474501 /* PopupSliderController.swift */,
 				83C720361F6A349400474501 /* HeroViewController.swift */,
+				838EA0781F739473008806E9 /* TaskDetailsController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				837321CC1F42691C00CBB174 /* SecondViewController.swift in Sources */,
 				837321C81F42691C00CBB174 /* AppDelegate.swift in Sources */,
 				83F66A231F45827500B8CE3A /* TasksController.swift in Sources */,
+				838EA0791F739473008806E9 /* TaskDetailsController.swift in Sources */,
 				832EE7251F51B093008568EA /* CustomCollectionController.swift in Sources */,
 				837321CA1F42691C00CBB174 /* FirstViewController.swift in Sources */,
 				832EE7231F51AF4E008568EA /* CustomCell.swift in Sources */,

@@ -11,6 +11,11 @@ class PopupViewController: UIViewController{
     @IBAction func closePopup(_ sender: Any) {
         dismiss(animated:true, completion:nil)
     }
+    
+    @IBAction func savePopup(_ sender: Any) {
+        dismiss(animated:true, completion:nil)
+    }
+    
     @IBOutlet weak var popupView: UIView!
 
     override func viewDidLoad()

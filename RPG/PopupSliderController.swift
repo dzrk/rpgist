@@ -12,8 +12,15 @@ import UIKit
 class PopupSliderController: UIViewController
 {
 
-    @IBAction func closePopup(_ sender: Any) {
+
+    @IBAction func cancelPopup(_ sender: Any) {
         dismiss(animated:true, completion:nil)
+
+    }
+
+    @IBAction func savePopup(_ sender: Any) {
+        dismiss(animated:true, completion:nil)
+
     }
     @IBOutlet weak var sliderDiff: UISlider!
     @IBOutlet weak var difficulty: UILabel!

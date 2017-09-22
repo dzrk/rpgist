@@ -78,11 +78,11 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     //swipe to remove task
-    func tableView(_ taskView: UITableView, commitforRowAtEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+    func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let task = tasks[indexPath.row]
+                  let task = tasks[indexPath.row]
             
-            task.itemRef?.removeValue()
+                  task.itemRef?.removeValue()
         }
     }
     
