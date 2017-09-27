@@ -216,13 +216,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coins-icon" translatesAutoresizingMaskIntoConstraints="NO" id="S26-Y3-im5">
-                                                        <rect key="frame" x="35.666666666666686" y="34.666666666666657" width="85.333333333333314" height="86.333333333333314"/>
+                                                        <rect key="frame" x="35.666666666666686" y="35.333333333333314" width="85.333333333333314" height="85.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="S26-Y3-im5" secondAttribute="height" multiplier="1:1" id="U7m-gg-6aw"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRB-uM-Ulh">
-                                                        <rect key="frame" x="35.666666666666686" y="34.666666666666657" width="85.333333333333314" height="86.333333333333314"/>
+                                                        <rect key="frame" x="35.666666666666686" y="35.333333333333314" width="85.333333333333314" height="85.333333333333343"/>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -911,6 +911,9 @@
                                         <integer key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTaskWithSender:" destination="W4Q-B2-lZD" eventType="touchUpInside" id="liY-nc-mhV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1325,7 +1328,7 @@
                 <tableViewController title="Rewards View" id="A8j-B4-trM" customClass="RewardsTableViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="RCf-rv-GhD" userLabel="Rewards Table View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="NRZ-3p-m1m" userLabel="Rewards Table View Cell" customClass="RewardsTableViewCellController" customModule="RPGistFrontEnd" customModuleProvider="target">
@@ -1351,8 +1354,34 @@
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oU-Dm-qZq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWH-EE-2r0">
+                                                                <rect key="frame" x="0.0" y="0.6666666666666643" width="70" height="70"/>
+                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                     </view>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="1oU-Dm-qZq" firstAttribute="height" secondItem="sMx-l6-ZnS" secondAttribute="height" id="5T5-tc-veh"/>
+                                                        <constraint firstItem="tWH-EE-2r0" firstAttribute="centerX" secondItem="sMx-l6-ZnS" secondAttribute="centerX" id="NfI-8P-6I1"/>
+                                                        <constraint firstItem="1oU-Dm-qZq" firstAttribute="centerX" secondItem="sMx-l6-ZnS" secondAttribute="centerX" id="fHY-ma-9oP"/>
+                                                        <constraint firstItem="tWH-EE-2r0" firstAttribute="width" secondItem="sMx-l6-ZnS" secondAttribute="width" id="h6c-rO-DX7"/>
+                                                        <constraint firstItem="1oU-Dm-qZq" firstAttribute="width" secondItem="sMx-l6-ZnS" secondAttribute="width" id="hUz-9W-jqB"/>
+                                                        <constraint firstItem="tWH-EE-2r0" firstAttribute="centerY" secondItem="sMx-l6-ZnS" secondAttribute="centerY" id="lbY-wy-zXN"/>
+                                                        <constraint firstItem="tWH-EE-2r0" firstAttribute="height" secondItem="sMx-l6-ZnS" secondAttribute="height" id="mPH-fo-lIT"/>
+                                                        <constraint firstItem="1oU-Dm-qZq" firstAttribute="centerY" secondItem="sMx-l6-ZnS" secondAttribute="centerY" id="zgK-aF-ce1"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="locked" destination="tWH-EE-2r0" id="WBv-EA-n3W"/>
+                                                        <outlet property="profilePicImages" destination="1oU-Dm-qZq" id="b60-TV-gmS"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -1375,14 +1404,17 @@
                             <outlet property="delegate" destination="A8j-B4-trM" id="Lov-Xg-9bg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Rewards" id="Nqn-fY-GQg"/>
+                    <navigationItem key="navigationItem" title="Rewards" id="Nqn-fY-GQg">
+                        <barButtonItem key="rightBarButtonItem" title="Gold" id="iON-Aa-HHh"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="gold" destination="iON-Aa-HHh" id="h9e-jK-5j9"/>
                         <outlet property="tblView" destination="RCf-rv-GhD" id="kNU-aJ-iHt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFw-6B-YgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="760"/>
+            <point key="canvasLocation" x="1531.8840579710145" y="756.52173913043487"/>
         </scene>
         <!--Hero-->
         <scene sceneID="Zdt-TM-OQU">

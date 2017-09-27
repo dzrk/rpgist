@@ -10,6 +10,7 @@ import UIKit
 
 class RewardsTableViewController: UITableViewController {
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var gold: UIBarButtonItem!
     
     fileprivate var tableViewCellCoordinator: [IndexPath: Int] = [:]
     
@@ -18,6 +19,8 @@ class RewardsTableViewController: UITableViewController {
         tblView.dataSource = self
         tblView.delegate = self
         tblView.tableFooterView = UIView()
+        
+        gold.title = String(HeroViewController.get.currGold) + " 🔑"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,9 +37,7 @@ class RewardsTableViewController: UITableViewController {
         cell.collectionView.delegate = self
         cell.collectionView.dataSource = self
         
-        let tag = 10000 * (indexPath.section + 1) + indexPath.row
-        cell.collectionView.tag = tag
-        tableViewCellCoordinator[indexPath] = tag
+        cell.collectionView.tag = indexPath.section
         
         return cell
     }
@@ -75,11 +76,60 @@ extension RewardsTableViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        switch collectionView.tag {
+            case 0:
+                return Model.get.mainColours.count
+            case 1:
+                return Model.get.secondaryColours.count
+            case 2:
+                return Model.get.profilePictures.count
+            default:
+                return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! RewardsCollectionViewCellController
+        
+        switch collectionView.tag {
+            case 0:
+                cell.backgroundColor = Model.get.mainColours[indexPath.row]
+            
+                if (Model.get.mainColourFlags[indexPath.row]) {
+                    cell.locked.isHidden = true
+                } else {
+                    cell.locked.text = "🔒\n\n" + String(Model.get.mainColourPrices[indexPath.row]) + " 🔑"
+                }
+            case 1:
+                cell.backgroundColor = Model.get.secondaryColours[indexPath.row]
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.lightGray.cgColor
+            
+                if (Model.get.secondaryColourFlags[indexPath.row]) {
+                    cell.locked.isHidden = true
+                } else {
+                    cell.locked.text = "🔒\n\n" + String(Model.get.secondaryColourPrices[indexPath.row]) + " 🔑"
+                }
+            case 2:
+                cell.backgroundColor = collectionView.backgroundColor
+                cell.profilePicImages.image = UIImage(named: Model.get.profilePictures[indexPath.row])
+                cell.profilePicImages.contentMode = .scaleAspectFill
+            
+                if (Model.get.profilePictureFlags[indexPath.row]) {
+                    cell.locked.isHidden = true
+                } else {
+                    cell.locked.text = "🔒\n\n" + String(Model.get.profilePicturePrices[indexPath.row]) + " 🔑"
+                }
+            default:
+                cell.backgroundColor = cell.backgroundColor
+        }
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.blue
+        cell.selectedBackgroundView = backgroundView
+        
+        cell.layer.cornerRadius = 10
+        
         return cell
     }
 }
@@ -89,11 +139,48 @@ extension RewardsTableViewController: UICollectionViewDataSource {
 extension RewardsTableViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! RewardsCollectionViewCellController
+        _ = cell as! RewardsCollectionViewCellController
         //cell.label.text = "\(tableViewCellCoordinator.key(forValue: collectionView.tag)!) \(indexPath)"
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated:true)
+        
+        var locked:Bool = false
+        var price:Int = 0
+        
+        switch collectionView.tag {
+            case 0:
+                if (!Model.get.mainColourFlags[indexPath.row]) {
+                    locked = true
+                    price = Model.get.mainColourPrices[indexPath.row]
+                }
+            case 1:
+                if (!Model.get.secondaryColourFlags[indexPath.row]) {
+                    locked = true
+                    price = Model.get.secondaryColourPrices[indexPath.row]
+                }
+            case 2:
+                if (!Model.get.profilePictureFlags[indexPath.row]) {
+                    locked = true
+                    price = Model.get.profilePicturePrices[indexPath.row]
+                }
+            default:
+                locked = true
+        }
+        
+        if (locked) {
+            let alert = UIAlertController(title: "Unlock", message: "This item is locked!\nSpend " + String(price) + " 🔑 to unlock?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
+                // Do something
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action:UIAlertAction) in
+                // Do something
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        
         //print("selected collectionViewCell with indexPath: \(indexPath) in tableViewCell with indexPath: \(tableViewCellCoordinator.key(forValue: collectionView.tag)!)")
     }
     

@@ -9,5 +9,6 @@
 import UIKit
 
 class RewardsCollectionViewCellController: UICollectionViewCell {
-    
+    @IBOutlet weak var profilePicImages: UIImageView!
+    @IBOutlet weak var locked: UILabel!
 }

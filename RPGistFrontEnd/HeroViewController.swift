@@ -14,10 +14,13 @@ public var tasks = [Task]()
 public var cat = [String]()
 
 class HeroViewController: UIViewController {
+    static var get: HeroViewController = HeroViewController()
+    
     let EXP:String = " exp"
     let LVL:String = "Level "
     let GOLD:String = " gold"
     var currExp:Int = 0
+    var currGold:Int = 0
     
     //*********************************************************//
     //*********************************************************//
@@ -105,6 +108,7 @@ class HeroViewController: UIViewController {
         let gold = 153
         
         self.currExp = exp
+        self.currGold = gold
         self.calcLevel()
         self.calcXP()
         
