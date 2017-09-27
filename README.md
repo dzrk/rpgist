@@ -23,3 +23,13 @@ File Changes:
 - Add RewardsTableViewCellController
 - Add CollectionViewCellController
 - Modified Model
+
+
+
+
+
+
+### Website Credits:
+- http://www.freepik.com
+- https://www.flaticon.com/
+- http://creativecommons.org/licenses/by/3.0/
