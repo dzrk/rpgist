@@ -24,6 +24,7 @@ File Changes:
 - Added CollectionViewCellController
 - Modified Model
 
+---
 
 ### 27 September
 ---
@@ -33,7 +34,7 @@ File Changes:
 - Added/Modified viewWillAppear() function in HeroViewController, FirstViewController, TasksController & TaskDetailsController
 - Modified Model
 
-
+---
 
 ### Website Credits:
 - http://www.freepik.com
