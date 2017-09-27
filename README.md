@@ -5,7 +5,7 @@
 ---
 File Changes:
 
-- Add PopupDueDateController
+- Added PopupDueDateController
 - TasksController swipe to remove task function:
 
       func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -19,14 +19,24 @@ File Changes:
 - Modified HeroViewController
   - Look for marked modifications (//*********************************************************//)
   - Modified calcLevel function
-- Add RewardsTableViewController
-- Add RewardsTableViewCellController
-- Add CollectionViewCellController
+- Added RewardsTableViewController
+- Added RewardsTableViewCellController
+- Added CollectionViewCellController
 - Modified Model
 
 
 
+---
+### 27 September
+---
+File Changes:
 
+- Modified RewardsTableViewController
+- Added/Modified viewWillAppear() function in HeroViewController, FirstViewController, TasksController & TaskDetailsController
+- Modified Model
+
+
+---
 
 
 ### Website Credits:
