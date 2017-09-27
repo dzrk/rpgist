@@ -21,5 +21,10 @@ class TaskDetailsController: UIViewController {
         placeholder2.layer.cornerRadius = 25
         placeholder3.layer.cornerRadius = 25
         placeholder4.layer.cornerRadius = 25
+        self.view.backgroundColor = Model.get.mainColourChosen
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.backgroundColor = Model.get.mainColourChosen
     }
 }

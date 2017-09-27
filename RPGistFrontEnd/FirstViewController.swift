@@ -44,6 +44,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.present(catAlert, animated: true, completion: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.backgroundColor = Model.get.mainColourChosen
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

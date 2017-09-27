@@ -46,6 +46,10 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.taskView.backgroundColor = Model.get.mainColourChosen
+    }
+    
     @IBAction func addTask(sender: AnyObject) {
         let taskAlert = UIAlertController(title: "New task", message: "Enter your task name", preferredStyle: .alert)
         taskAlert.addTextField { (textField:UITextField) in

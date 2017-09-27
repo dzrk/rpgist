@@ -16,7 +16,7 @@
         <!--Quests-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Quests" id="9pv-A4-QxB" customClass="FirstViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -839,45 +839,6 @@
             </objects>
             <point key="canvasLocation" x="4105.7971014492759" y="16.304347826086957"/>
         </scene>
-        <!--Skills Tableview-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController storyboardIdentifier="Skills" title="Skills Tableview" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H9c-2O-DDh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="id.my.cell.skills" id="EWH-gn-RjB">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EWH-gn-RjB" id="8QF-oK-ej5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Skills" id="UZE-o1-OyK"/>
-                    <connections>
-                        <outlet property="skillTableView" destination="H9c-2O-DDh" id="3SQ-rf-dwe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1534" y="0.0"/>
-        </scene>
         <!--Tasks Controller-->
         <scene sceneID="vLL-CW-hK0">
             <objects>
@@ -944,7 +905,6 @@
                     <connections>
                         <segue destination="AqH-kX-qPR" kind="relationship" relationship="viewControllers" id="vpx-GS-P2K"/>
                         <segue destination="SwD-t9-40C" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="Ziq-7A-nUY" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Sxa-5c-PIU" kind="relationship" relationship="viewControllers" id="1uC-Mf-BeO"/>
                     </connections>
                 </tabBarController>
@@ -955,7 +915,7 @@
         <!--Quests-->
         <scene sceneID="UBz-Ge-5Xg">
             <objects>
-                <navigationController title="Quests" automaticallyAdjustsScrollViewInsets="NO" id="SwD-t9-40C" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavCon1" title="Quests" automaticallyAdjustsScrollViewInsets="NO" id="SwD-t9-40C" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Quest" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u8r-4J-vnP">
@@ -971,29 +931,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-701"/>
         </scene>
-        <!--Attributes-->
-        <scene sceneID="WwZ-gI-69M">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ziq-7A-nUY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Attributes" image="first" id="cPa-gy-q4n"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mla-Sp-r1V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="dSy-Pf-0Qd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vRV-d6-lOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="0.0"/>
-        </scene>
         <!--Hero profile-->
         <scene sceneID="oES-b5-wUQ">
             <objects>
-                <viewController title="Hero profile" id="5ea-es-uA5" customClass="HeroViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeroProfile" title="Hero profile" id="5ea-es-uA5" customClass="HeroViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qjc-ya-A5N"/>
                         <viewControllerLayoutGuide type="bottom" id="BRQ-8m-nay"/>
@@ -1306,7 +1247,7 @@
         <!--Rewards-->
         <scene sceneID="p1s-tj-l90">
             <objects>
-                <navigationController title="Rewards" automaticallyAdjustsScrollViewInsets="NO" id="Sxa-5c-PIU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavCon3" title="Rewards" automaticallyAdjustsScrollViewInsets="NO" id="Sxa-5c-PIU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rewards" image="first" id="PW1-gp-M9O"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJk-3o-TgB">
@@ -1325,7 +1266,7 @@
         <!--Rewards View-->
         <scene sceneID="Dvx-tv-mib">
             <objects>
-                <tableViewController title="Rewards View" id="A8j-B4-trM" customClass="RewardsTableViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Rewards" title="Rewards View" id="A8j-B4-trM" customClass="RewardsTableViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="RCf-rv-GhD" userLabel="Rewards Table View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -1419,7 +1360,7 @@
         <!--Hero-->
         <scene sceneID="Zdt-TM-OQU">
             <objects>
-                <navigationController title="Hero" automaticallyAdjustsScrollViewInsets="NO" id="AqH-kX-qPR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavCon4" title="Hero" automaticallyAdjustsScrollViewInsets="NO" id="AqH-kX-qPR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Hero" image="first" id="fHh-9E-EH4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G67-Ba-kSv">

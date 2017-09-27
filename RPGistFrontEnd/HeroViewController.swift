@@ -62,6 +62,7 @@ class HeroViewController: UIViewController {
         //        startObservingDB()
         //        print(Auth.auth().currentUser?.email)
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +94,7 @@ class HeroViewController: UIViewController {
 //                print("You need to sign up or login first")
 //            }
 //        })
-        
+        self.view.backgroundColor = Model.get.mainColourChosen
     }
     
     //*********************************************************//
