@@ -25,8 +25,25 @@ class PopupSliderController: UIViewController
     @IBOutlet weak var difficulty: UILabel!
     @IBOutlet weak var sliderImp: UISlider!
     @IBOutlet weak var importance: UILabel!
-    
     @IBOutlet weak var totalExp: UILabel!
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var difficultyLbl: UILabel!
+    @IBOutlet weak var imporatanceLbl: UILabel!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
     
     @IBAction func sliderDiffValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
@@ -54,6 +71,36 @@ class PopupSliderController: UIViewController
         super.viewDidLoad()
         popupSlider.layer.cornerRadius = 10
         popupSlider.layer.masksToBounds = true
+        
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        self.popupSlider.backgroundColor = Model.get.mainColourChosen
+        self.titleLbl.textColor = Model.get.textColourChosen
+        self.difficultyLbl.textColor = Model.get.textColourChosen
+        self.difficulty.textColor = Model.get.textColourChosen
+        self.imporatanceLbl.textColor = Model.get.textColourChosen
+        self.importance.textColor = Model.get.textColourChosen
+        self.sliderDiff.thumbTintColor = Model.get.textColourChosen
+        self.sliderDiff.maximumTrackTintColor = Model.get.extraColour2Chosen
+        self.sliderDiff.minimumTrackTintColor = Model.get.extraColour1Chosen
+        self.sliderImp.thumbTintColor = Model.get.textColourChosen
+        self.sliderImp.maximumTrackTintColor = Model.get.extraColour2Chosen
+        self.sliderImp.minimumTrackTintColor = Model.get.extraColour1Chosen
+        self.totalExp.textColor = Model.get.textColourChosen
+        self.saveBtn.tintColor = Model.get.extraColour1Chosen
+        self.cancelBtn.tintColor = Model.get.extraColour1Chosen
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         calcTotalExp()
         // Do any additional setup after loading the view, typically from a nib.
     }

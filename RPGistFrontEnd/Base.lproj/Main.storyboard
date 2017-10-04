@@ -51,7 +51,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -648,10 +648,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="description1" destination="ZDf-XN-YQN" id="8RP-ug-epw"/>
+                        <outlet property="description2" destination="25e-LL-mTi" id="LZx-iH-K5t"/>
+                        <outlet property="description3" destination="pfb-R1-oUo" id="Fvw-Lb-GDE"/>
+                        <outlet property="description4" destination="B4V-uN-HTr" id="HN4-D8-zuw"/>
                         <outlet property="placeholder1" destination="GRZ-6h-eDh" id="xqS-jX-TF4"/>
                         <outlet property="placeholder2" destination="M0n-3l-pzr" id="P6h-Qe-Eia"/>
                         <outlet property="placeholder3" destination="sDH-wb-fIA" id="Dua-Wt-2CR"/>
                         <outlet property="placeholder4" destination="Bnf-aO-Ba4" id="TNf-AO-9ox"/>
+                        <outlet property="title1" destination="hs0-dK-OSH" id="g28-5c-07J"/>
+                        <outlet property="title2" destination="moz-3j-daV" id="Sdg-rE-hdc"/>
+                        <outlet property="title3" destination="O0J-xl-35X" id="Nnv-Bc-y5n"/>
+                        <outlet property="title4" destination="MZB-hf-dUf" id="Nvt-EV-PKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grj-85-bye" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -753,7 +761,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="WrU-PF-eze" id="zvF-bc-eWI"/>
+                        <outlet property="notes" destination="tHZ-JV-f0y" id="3RI-qg-r7k"/>
                         <outlet property="popupView" destination="rQl-az-Ott" id="7QJ-HB-uUF"/>
+                        <outlet property="saveBtn" destination="4VN-Hb-rSW" id="W5h-rn-1qd"/>
+                        <outlet property="titleLbl" destination="Mbq-l4-Ecf" id="kLU-xT-OQ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Avq-wN-ttU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -832,7 +844,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="wxk-pF-DNJ" id="u4S-7m-NOH"/>
+                        <outlet property="datePicker" destination="M0l-eo-4Gx" id="9yM-hZ-c7g"/>
                         <outlet property="popupView" destination="L7h-va-H6t" id="zck-Oo-AVO"/>
+                        <outlet property="saveBtn" destination="8JT-OB-qfK" id="mSf-or-WfT"/>
+                        <outlet property="titleLbl" destination="c3X-0u-9RM" id="acX-eZ-reo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxh-kP-7tJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -865,7 +881,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -990,7 +1006,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fMJ-Fj-G8D" firstAttribute="top" secondItem="RZd-ps-eCH" secondAttribute="top" constant="8" id="3eP-mv-D8t"/>
                                     <constraint firstItem="iEo-p9-s7A" firstAttribute="top" secondItem="fMJ-Fj-G8D" secondAttribute="bottom" constant="12" id="3sC-lF-SLe"/>
@@ -1015,7 +1031,7 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vlB-vW-b8V">
                                 <rect key="frame" x="20" y="84" width="186.33333333333334" height="187.33333333333331"/>
-                                <color key="backgroundColor" red="1" green="0.26624208859172172" blue="0.11116278023801207" alpha="0.4255672089041096" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vlB-vW-b8V" secondAttribute="height" multiplier="1:1" id="VWZ-dQ-I2i"/>
                                 </constraints>
@@ -1048,7 +1064,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="rM9-oV-fvt" firstAttribute="leading" secondItem="qcm-6Y-O3T" secondAttribute="leading" constant="71" id="4Ak-OC-xcK">
                                         <variation key="heightClass=compact-widthClass=regular" constant="8"/>
@@ -1234,10 +1250,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ExpLbl" destination="zhH-x4-kno" id="wZJ-jZ-U1V"/>
+                        <outlet property="ExpMultiplierLbl" destination="iEz-EM-vQG" id="z7v-k8-yyK"/>
                         <outlet property="ExpPgb" destination="45i-we-CCa" id="XKK-n4-uEL"/>
                         <outlet property="GoldLbl" destination="7kY-KP-3lX" id="zse-XK-9HC"/>
                         <outlet property="HeroLbl" destination="fMJ-Fj-G8D" id="v2e-N8-VBT"/>
+                        <outlet property="JobLbl" destination="iEo-p9-s7A" id="ubx-jd-Yhi"/>
+                        <outlet property="LifetimeLbl" destination="pvP-lw-hRa" id="NN3-qZ-Pls"/>
+                        <outlet property="LifetimeLbl2" destination="rM9-oV-fvt" id="3Jf-Ur-VYj"/>
                         <outlet property="LvlLbl" destination="xXT-Kd-g9d" id="fxR-Cq-gOP"/>
+                        <outlet property="TaskCountLbl" destination="3lM-fU-b1z" id="kfv-US-XkN"/>
+                        <outlet property="profilePicture" destination="vlB-vW-b8V" id="4mo-fT-2q9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rz4-ce-ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1630,17 +1652,105 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="pDd-hE-cNO" id="aAp-4w-QPo"/>
                         <outlet property="difficulty" destination="3tb-ma-5h4" id="MwO-Hw-MYa"/>
+                        <outlet property="difficultyLbl" destination="mgJ-0d-pHy" id="5f6-vi-75d"/>
+                        <outlet property="imporatanceLbl" destination="1LP-Gy-I9k" id="uNC-A7-2di"/>
                         <outlet property="importance" destination="BEh-Ps-07g" id="oyB-tz-Ske"/>
                         <outlet property="popupSlider" destination="hRm-fd-nLB" id="BuT-po-ybt"/>
+                        <outlet property="saveBtn" destination="BGi-fI-Z3i" id="R9r-G8-R8Q"/>
                         <outlet property="sliderDiff" destination="k7k-7M-ym4" id="RJA-N5-cfX"/>
                         <outlet property="sliderImp" destination="XIp-2b-KOQ" id="tGM-LI-rWS"/>
+                        <outlet property="titleLbl" destination="tpQ-9h-RVX" id="4BG-tf-fff"/>
                         <outlet property="totalExp" destination="hBu-g7-ZTb" id="ISd-3Z-p9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUd-Wj-PSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4108.695652173913" y="-1371.0144927536232"/>
+        </scene>
+        <!--Due Date Popup View-->
+        <scene sceneID="yAE-d7-b4T">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="k5q-Im-gI1" userLabel="Due Date Popup View" customClass="PopupDueDateController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nM7-v6-r4U"/>
+                        <viewControllerLayoutGuide type="bottom" id="dEK-pY-rer"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ORF-2m-g0T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHE-G7-Jpf" userLabel="PopupDateView">
+                                <rect key="frame" x="51.666666666666657" y="184" width="310.66666666666663" height="368"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wos-M5-Ena">
+                                        <rect key="frame" x="93.666666666666671" y="25" width="123.66666666666664" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="do7-Uh-ioB">
+                                        <rect key="frame" x="0.0" y="55" width="311" height="257.66666666666669"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="527669689.82218802">
+                                            <!--2017-09-21 06:54:49 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5o-U0-y9n">
+                                        <rect key="frame" x="256.66666666666663" y="323" width="34" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FxL-tQ-BR0"/>
+                                        </constraints>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveChanges:" destination="k5q-Im-gI1" eventType="touchUpInside" id="2Np-fJ-VLj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tX-JE-oUT">
+                                        <rect key="frame" x="20.000000000000007" y="323" width="47.999999999999993" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="PvJ-XL-A6A"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="k5q-Im-gI1" eventType="touchUpInside" id="AZ5-I6-6uP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Z5o-U0-y9n" secondAttribute="trailing" constant="20" id="0Gq-BK-EME"/>
+                                    <constraint firstAttribute="bottom" secondItem="2tX-JE-oUT" secondAttribute="bottom" constant="5" id="1H7-rr-HIh"/>
+                                    <constraint firstItem="do7-Uh-ioB" firstAttribute="width" secondItem="DHE-G7-Jpf" secondAttribute="width" id="3TV-rt-a0v"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z5o-U0-y9n" secondAttribute="bottom" constant="5" id="Gc3-Xr-2OR"/>
+                                    <constraint firstItem="Wos-M5-Ena" firstAttribute="top" secondItem="DHE-G7-Jpf" secondAttribute="top" constant="25" id="boD-a5-lmd"/>
+                                    <constraint firstItem="do7-Uh-ioB" firstAttribute="centerY" secondItem="DHE-G7-Jpf" secondAttribute="centerY" id="fxL-8e-Ei4"/>
+                                    <constraint firstItem="do7-Uh-ioB" firstAttribute="height" secondItem="DHE-G7-Jpf" secondAttribute="height" multiplier="0.7" id="k1E-Uz-0Gq"/>
+                                    <constraint firstItem="Wos-M5-Ena" firstAttribute="centerX" secondItem="DHE-G7-Jpf" secondAttribute="centerX" id="kQx-ls-3Nl"/>
+                                    <constraint firstItem="2tX-JE-oUT" firstAttribute="leading" secondItem="DHE-G7-Jpf" secondAttribute="leading" constant="20" id="q1N-1R-72k"/>
+                                    <constraint firstItem="do7-Uh-ioB" firstAttribute="centerX" secondItem="DHE-G7-Jpf" secondAttribute="centerX" id="r2z-a8-Mkz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="DHE-G7-Jpf" firstAttribute="centerX" secondItem="ORF-2m-g0T" secondAttribute="centerX" id="GiL-Ms-9vc"/>
+                            <constraint firstItem="DHE-G7-Jpf" firstAttribute="centerY" secondItem="ORF-2m-g0T" secondAttribute="centerY" id="WwN-y0-jAs"/>
+                            <constraint firstItem="DHE-G7-Jpf" firstAttribute="height" secondItem="ORF-2m-g0T" secondAttribute="height" multiplier="0.5" id="uJD-Re-x4v"/>
+                            <constraint firstItem="DHE-G7-Jpf" firstAttribute="width" secondItem="ORF-2m-g0T" secondAttribute="width" multiplier="0.75" id="urc-A6-0Zj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="2tX-JE-oUT" id="QZ1-MQ-RKv"/>
+                        <outlet property="datePicker" destination="do7-Uh-ioB" id="MKe-6w-lYK"/>
+                        <outlet property="popupView" destination="DHE-G7-Jpf" id="1da-7l-UCa"/>
+                        <outlet property="saveBtn" destination="Z5o-U0-y9n" id="go9-Im-28v"/>
+                        <outlet property="titleLbl" destination="Wos-M5-Ena" id="Egz-LZ-8OS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iG-2o-DVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4105.7971014492759" y="16.304347826086957"/>
         </scene>
     </scenes>
     <resources>

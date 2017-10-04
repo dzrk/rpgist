@@ -65,6 +65,19 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //                catRef.setValue(self.cellChosen)
 //            }
         }))
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        taskAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+            //do something
+        }))
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
         self.present(taskAlert, animated: true, completion: nil)
     }
     
@@ -88,11 +101,28 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         let cell:UITableViewCell = self.taskView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         // set the text from the data model
         cell.textLabel?.text = self.chosenList[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white
-        cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        cell.textLabel?.textColor = Model.get.textColourChosen
+        
+        //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
+        cell.backgroundColor = Model.get.mainColourChosen
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
+        //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
+        backgroundView.backgroundColor = Model.get.extraColour1Chosen
         //#85C7F2 baby blue
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         cell.selectedBackgroundView = backgroundView
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         

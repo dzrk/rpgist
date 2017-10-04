@@ -106,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		326B042A1F84C85A00038768 /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				3277B7B11F6A61D5006C7785 /* SecondViewController.swift */,
+				3277B7E81F6A6329006C7785 /* RewardCollectionViewController.swift */,
+				3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */,
+			);
+			name = Unused;
+			sourceTree = "<group>";
+		};
 		3277B7A11F6A61D5006C7785 = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */,
-				3277B7B11F6A61D5006C7785 /* SecondViewController.swift */,
 				3277B7DD1F6A6278006C7785 /* PopupViewController.swift */,
 				3277B7E01F6A62A5006C7785 /* TasksController.swift */,
-				3277B7E81F6A6329006C7785 /* RewardCollectionViewController.swift */,
-				3277B7EA1F6A633B006C7785 /* RewardCustomCell.swift */,
 				3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */,
 				321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */,
 				324BDF5B1F7394A900F040C9 /* HeroViewController.swift */,
@@ -174,6 +181,7 @@
 				324BDF651F73C48200F040C9 /* RewardsTableViewController.swift */,
 				324BDF671F73C52000F040C9 /* RewardsTableViewCellController.swift */,
 				324BDF691F73D09C00F040C9 /* RewardsCollectionViewCellController.swift */,
+				326B042A1F84C85A00038768 /* Unused */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

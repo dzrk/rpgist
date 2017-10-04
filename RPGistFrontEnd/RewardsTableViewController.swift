@@ -197,12 +197,43 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         //self.navigationController?.navigationBar.tintColor = Model.get.mainColours[indexPath.row]
                         self.view?.backgroundColor = Model.get.mainColours[indexPath.row]
                         Model.get.mainColourChosen = Model.get.mainColours[indexPath.row]
+                        
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                        
+                        Model.get.textColourChosen = Model.get.textColours[indexPath.row]
+                        Model.get.extraColour1Chosen = Model.get.extraColours1[indexPath.row]
+                        Model.get.extraColour2Chosen = Model.get.extraColours2[indexPath.row]
+                    
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                        //*********************************************************//
+                    
                     case "Secondary Theme Colour":
                         self.navigationController?.navigationBar.barTintColor = Model.get.secondaryColours[indexPath.row]
                         UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexPath.row]
                         self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexPath.row]
-                    //case "Profile Picture":
-                        //do something
+                    
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    
+                    case "Profile Picture":
+                        Model.get.profilePictureChosen = Model.get.profilePictures[indexPath.row]
+                    
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    
                     default:
                         break
                 }

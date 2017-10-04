@@ -21,34 +21,27 @@ class HeroViewController: UIViewController {
     let GOLD:String = " gold"
     var currExp:Int = 0
     var currGold:Int = 0
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     var currLvl:Int = 0
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
 //    var dbRef:DatabaseReference!
     @IBOutlet weak var HeroLbl: UILabel!
     @IBOutlet weak var ExpLbl: UILabel!
     @IBOutlet weak var LvlLbl: UILabel!
     @IBOutlet weak var GoldLbl: UILabel!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     @IBOutlet weak var ExpPgb: UIProgressView!
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var JobLbl: UILabel!
+    @IBOutlet weak var ExpMultiplierLbl: UILabel!
+    @IBOutlet weak var LifetimeLbl: UILabel!
+    @IBOutlet weak var LifetimeLbl2: UILabel!
+    @IBOutlet weak var TaskCountLbl: UILabel!
     
     //*********************************************************//
     //*********************************************************//
@@ -68,19 +61,7 @@ class HeroViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-        
         initialization()
-        
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
         
 //        Auth.auth().addStateDidChangeListener({ (auth, user) in
 //            if let user = user {
@@ -94,14 +75,33 @@ class HeroViewController: UIViewController {
 //                print("You need to sign up or login first")
 //            }
 //        })
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         self.view.backgroundColor = Model.get.mainColourChosen
+        self.profilePicture.image = UIImage(named: Model.get.profilePictureChosen)
+        self.HeroLbl.textColor = Model.get.textColourChosen
+        self.ExpLbl.textColor = Model.get.textColourChosen
+        self.LvlLbl.textColor = Model.get.textColourChosen
+        self.GoldLbl.textColor = Model.get.textColourChosen
+        self.JobLbl.textColor = Model.get.textColourChosen
+        self.ExpMultiplierLbl.textColor = Model.get.textColourChosen
+        self.LifetimeLbl.textColor = Model.get.textColourChosen
+        self.LifetimeLbl2.textColor = Model.get.textColourChosen
+        self.TaskCountLbl.textColor = Model.get.textColourChosen
+        self.ExpPgb.trackTintColor = Model.get.extraColour2Chosen
+        self.ExpPgb.progressTintColor = Model.get.extraColour1Chosen
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
     }
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     func initialization() {
         let exp = 937
@@ -117,12 +117,6 @@ class HeroViewController: UIViewController {
         self.ExpLbl.text? = String(exp) + " exp / " + String(format: "%.0f", pow(Double((currLvl + 1) * 4), 2)) + self.EXP
         self.GoldLbl.text? = String(gold) + self.GOLD
     }
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     @IBAction func loginAndSignUp(sender: AnyObject) {
         let userAlert = UIAlertController(title: "Login/Sign up", message: "Enter email and password", preferredStyle: .alert)
@@ -186,12 +180,6 @@ class HeroViewController: UIViewController {
         //print("max: \(ceil(level)), min: \(floor(level))")
     }
     
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     func calcXP() {
         let min = pow(Double(currLvl * 4), 2)
         let max = pow(Double((currLvl + 1) * 4), 2)
@@ -199,10 +187,4 @@ class HeroViewController: UIViewController {
         
         self.ExpPgb.setProgress(Float(progress), animated: false)
     }
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
 }

@@ -41,6 +41,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //                
 //            }
         }))
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+            //do something
+        }))
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
         self.present(catAlert, animated: true, completion: nil)
     }
     
@@ -78,13 +91,44 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // set the text from the data model
         cell.textLabel?.text = self.categoryList[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white
-        cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        cell.textLabel?.textColor = Model.get.textColourChosen
+        
+        //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
+        cell.backgroundColor = Model.get.mainColourChosen
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
+        //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
+        backgroundView.backgroundColor = Model.get.extraColour1Chosen
         //#85C7F2 baby blue
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         cell.selectedBackgroundView = backgroundView
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        
+        /*
+         let cellLabel = UILabel()
+         cellLabel.textAlignment = .right
+         cellLabel.text = "Hi!"
+         cellLabel.translatesAutoresizingMaskIntoConstraints = false
+         
+         cellLabel.widthAnchor.constraint(equalToConstant: 30).isActive = true
+         cellLabel.heightAnchor.constraint(equalToConstant: cell.frame.height).isActive = true
+         view.addConstraint(NSLayoutConstraint(item: cellLabel, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 0.9, constant: 0))
+         cellLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+         
+         cell.addSubview(cellLabel)
+         */
         
         return cell
     }
