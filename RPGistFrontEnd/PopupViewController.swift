@@ -46,12 +46,14 @@ class PopupViewController: UIViewController{
         //*********************************************************//
         //*********************************************************//
         
-        self.popupView.backgroundColor = Model.get.mainColourChosen
-        self.titleLbl.textColor = Model.get.textColourChosen
-        self.notes.backgroundColor = Model.get.mainColourChosen
-        self.notes.textColor = Model.get.textColourChosen
-        self.saveBtn.tintColor = Model.get.extraColour1Chosen
-        self.cancelBtn.tintColor = Model.get.extraColour1Chosen
+        self.popupView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.titleLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.notes.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.notes.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.notes.layer.cornerRadius = 10
+        self.notes.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15)
+        self.saveBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.cancelBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         
         //*********************************************************//
         //*********************************************************//

@@ -82,19 +82,24 @@ class HeroViewController: UIViewController {
         //*********************************************************//
         //*********************************************************//
         
-        self.view.backgroundColor = Model.get.mainColourChosen
-        self.profilePicture.image = UIImage(named: Model.get.profilePictureChosen)
-        self.HeroLbl.textColor = Model.get.textColourChosen
-        self.ExpLbl.textColor = Model.get.textColourChosen
-        self.LvlLbl.textColor = Model.get.textColourChosen
-        self.GoldLbl.textColor = Model.get.textColourChosen
-        self.JobLbl.textColor = Model.get.textColourChosen
-        self.ExpMultiplierLbl.textColor = Model.get.textColourChosen
-        self.LifetimeLbl.textColor = Model.get.textColourChosen
-        self.LifetimeLbl2.textColor = Model.get.textColourChosen
-        self.TaskCountLbl.textColor = Model.get.textColourChosen
-        self.ExpPgb.trackTintColor = Model.get.extraColour2Chosen
-        self.ExpPgb.progressTintColor = Model.get.extraColour1Chosen
+        self.view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.profilePicture.image = UIImage(named: Model.get.profilePictures[Model.get.profilePictureChosenIndex])
+        self.HeroLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.ExpLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.LvlLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.GoldLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.JobLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.ExpMultiplierLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.LifetimeLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.LifetimeLbl2.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.TaskCountLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.ExpPgb.trackTintColor = Model.get.extraColours2[Model.get.mainColourChosenIndex]
+        self.ExpPgb.progressTintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        
+        //This is to initialize theme colour, only exists in this class because this is the first controller called
+        //Cannot be put on AppDelegate somehow (it seems that the appearance() funtion in the UITabBar works in a different way than the one in UINavigationBar)
+        self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[Model.get.secondaryColourChosenIndex]
+        self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[Model.get.secondaryColourChosenIndex]
         
         //*********************************************************//
         //*********************************************************//

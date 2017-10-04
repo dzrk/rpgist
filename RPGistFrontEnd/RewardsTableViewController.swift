@@ -24,7 +24,7 @@ class RewardsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.view.backgroundColor = Model.get.mainColourChosen
+        self.view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -196,7 +196,6 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                     case "Main Theme Colour":
                         //self.navigationController?.navigationBar.tintColor = Model.get.mainColours[indexPath.row]
                         self.view?.backgroundColor = Model.get.mainColours[indexPath.row]
-                        Model.get.mainColourChosen = Model.get.mainColours[indexPath.row]
                         
                         //*********************************************************//
                         //*********************************************************//
@@ -204,9 +203,7 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         //*********************************************************//
                         //*********************************************************//
                         
-                        Model.get.textColourChosen = Model.get.textColours[indexPath.row]
-                        Model.get.extraColour1Chosen = Model.get.extraColours1[indexPath.row]
-                        Model.get.extraColour2Chosen = Model.get.extraColours2[indexPath.row]
+                        Model.get.mainColourChosenIndex = indexPath.row
                     
                         //*********************************************************//
                         //*********************************************************//
@@ -215,18 +212,25 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         //*********************************************************//
                     
                     case "Secondary Theme Colour":
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
+                    //*********************************************************//
                         self.navigationController?.navigationBar.barTintColor = Model.get.secondaryColours[indexPath.row]
                         UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexPath.row]
+                        self.navigationController?.navigationBar.tintColor = Model.get.extraColours1[indexPath.row]
+                        UINavigationBar.appearance().tintColor = Model.get.extraColours1[indexPath.row]
+                        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexPath.row]]
+                        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexPath.row]]
+                        
                         self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexPath.row]
+                        self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[indexPath.row]
                     
-                    //*********************************************************//
-                    //*********************************************************//
-                    //*********************************************************//
-                    //*********************************************************//
-                    //*********************************************************//
+                        Model.get.secondaryColourChosenIndex = indexPath.row
                     
                     case "Profile Picture":
-                        Model.get.profilePictureChosen = Model.get.profilePictures[indexPath.row]
+                        Model.get.profilePictureChosenIndex = indexPath.row
                     
                     //*********************************************************//
                     //*********************************************************//

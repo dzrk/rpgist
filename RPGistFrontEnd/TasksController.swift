@@ -46,12 +46,65 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    @IBOutlet weak var addBtn: UIButton!
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.taskView.backgroundColor = Model.get.mainColourChosen
+        self.taskView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        self.addBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.addBtn.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.taskView.reloadData()
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
     }
     
     @IBAction func addTask(sender: AnyObject) {
         let taskAlert = UIAlertController(title: "New task", message: "Enter your task name", preferredStyle: .alert)
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        taskAlert.setValue(NSAttributedString(string: "New Task", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
+        taskAlert.setValue(NSAttributedString(string: "Enter your task name", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        
+        let subview1 = taskAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        taskAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         taskAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "New task name"
         }
@@ -108,13 +161,13 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         //*********************************************************//
         
-        cell.textLabel?.textColor = Model.get.textColourChosen
+        cell.textLabel?.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
         
         //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
-        cell.backgroundColor = Model.get.mainColourChosen
+        cell.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
         let backgroundView = UIView()
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
-        backgroundView.backgroundColor = Model.get.extraColour1Chosen
+        backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         //#85C7F2 baby blue
         
         //*********************************************************//

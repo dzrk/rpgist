@@ -45,7 +45,7 @@ class TaskDetailsController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.view.backgroundColor = Model.get.mainColourChosen
+        self.view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
         
         //*********************************************************//
         //*********************************************************//
@@ -53,19 +53,19 @@ class TaskDetailsController: UIViewController {
         //*********************************************************//
         //*********************************************************//
         
-        self.placeholder1.backgroundColor = Model.get.extraColour1Chosen
-        self.placeholder2.backgroundColor = Model.get.extraColour1Chosen
-        self.placeholder3.backgroundColor = Model.get.extraColour1Chosen
-        self.placeholder4.backgroundColor = Model.get.extraColour1Chosen
+        self.placeholder1.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.placeholder2.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.placeholder3.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.placeholder4.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         
-        self.title1.textColor = Model.get.textColourChosen
-        self.description1.textColor = Model.get.textColourChosen
-        self.title2.textColor = Model.get.textColourChosen
-        self.description2.textColor = Model.get.textColourChosen
-        self.title3.textColor = Model.get.textColourChosen
-        self.description3.textColor = Model.get.textColourChosen
-        self.title4.textColor = Model.get.textColourChosen
-        self.description4.textColor = Model.get.textColourChosen
+        self.title1.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.description1.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.title2.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.description2.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.title3.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.description3.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.title4.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.description4.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
         
         //*********************************************************//
         //*********************************************************//

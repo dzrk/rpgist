@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RPGistFrontEnd/HeroViewController.swift"
-            timestampString = "528799819.003639"
+            timestampString = "528813346.492376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "calcXP()"
             landmarkType = "7">
          </BreakpointContent>

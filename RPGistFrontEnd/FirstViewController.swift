@@ -28,6 +28,29 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func addCategory(sender: AnyObject) {
         let catAlert = UIAlertController(title: "New category", message: "Enter your category", preferredStyle: .alert)
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        catAlert.setValue(NSAttributedString(string: "New Category", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
+        catAlert.setValue(NSAttributedString(string: "Enter your category", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        
+        let subview1 = catAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        catAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         catAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "New category name"
         }
@@ -57,8 +80,38 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.present(catAlert, animated: true, completion: nil)
     }
     
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    @IBOutlet weak var addBtn: UIButton!
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.backgroundColor = Model.get.mainColourChosen
+        self.tableView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        self.addBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.addBtn.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.tableView.reloadData()
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
     }
     
     override func viewDidLoad() {
@@ -98,13 +151,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //*********************************************************//
         //*********************************************************//
         
-        cell.textLabel?.textColor = Model.get.textColourChosen
+        cell.textLabel?.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
         
         //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
-        cell.backgroundColor = Model.get.mainColourChosen
+        cell.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
         let backgroundView = UIView()
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
-        backgroundView.backgroundColor = Model.get.extraColour1Chosen
+        backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         //#85C7F2 baby blue
         
         //*********************************************************//

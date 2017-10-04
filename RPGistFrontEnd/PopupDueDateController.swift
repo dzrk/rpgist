@@ -46,11 +46,11 @@ class PopupDueDateController: UIViewController{
         //*********************************************************//
         //*********************************************************//
         
-        self.popupView.backgroundColor = Model.get.mainColourChosen
-        self.titleLbl.textColor = Model.get.textColourChosen
-        self.datePicker.setValue(Model.get.textColourChosen, forKey: "textColor")
-        self.saveBtn.tintColor = Model.get.extraColour1Chosen
-        self.cancelBtn.tintColor = Model.get.extraColour1Chosen
+        self.popupView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.titleLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.datePicker.setValue(Model.get.textColours[Model.get.mainColourChosenIndex], forKey: "textColor")
+        self.saveBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.cancelBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         
         //*********************************************************//
         //*********************************************************//
