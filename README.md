@@ -42,24 +42,30 @@ File Changes:
 ---
 File Changes:
 
+- Modified AppDelegate:
+  - Added code to initialize theme colour
 - Modified FirstViewController:
+  - Modified code related to alert colours to be able to change according to the theme
   - Added cancel option to addCategory alert
+  - Added code related to changing colours according to the theme in viewWillAppear
   - Modified one of tableView functions with code related to changing colours according to the theme
 - Modified PopupViewController:
   - Added IBOutlets for all objects in the view so that their colours will be able to be modified
   - Added code related to changing colours according to the theme in viewDidLoad
 - Modified TasksController:
+  - Modified code related to alert colours to be able to change according to the theme
   - Added cancel option to addTask alert
+  - Added code related to changing colours according to the theme in viewWillAppear
   - Modified one of tableView functions with code related to changing colours according to the theme
 - Modified PopupSliderController:
   - Added IBOutlets for all objects in the view so that their colours will be able to be modified
   - Added code related to changing colours according to the theme in viewDidLoad
 - Modified TaskDetailsController:
   - Added IBOutlets for all objects in the view so that their colours will be able to be modified
-  - Added code related to changing colours according to the theme in viewDidLoad
+  - Added code related to changing colours according to the theme in viewWillAppear
 - Modified HeroViewController:
   - Added IBOutlets for all objects in the view so that their colours will be able to be modified
-  - Added code related to changing profile pictures and changing colours according to the theme in viewDidLoad
+  - Added code related to changing profile pictures and changing colours according to the theme in viewWillAppear
 - Modified PopupDueDateController:
   - Added IBOutlets for all objects in the view so that their colours will be able to be modified
   - Added code related to changing colours according to the theme in viewDidLoad
@@ -73,10 +79,10 @@ File Changes:
 ### Themes
 ---
 1. #636363, #85C7F2, #FFFFFF
-2. #555B6E, #89B0AE, #BEE3DB, #FAF9F9, #FFD6BA
+2. #555B6E, #64817F, #BEE3DB, #FAF9F9, #FFD6BA
 3. #0B3948, #416165, #ACB0BD, #D0CDD7, #D9DBF1
 4. #114B5F, #1A936F, #88D498, #C6DABF, #F3E9D2
-5. #0C1713, #AB4967, #A04668, #BC8DA0, #D9D0DE
+5. #38413D, #4E222F, #A04668, #BC8DA0, #D9D0DE
 6. #3C1642, #086375, #1DD3B0, #AFFC41, #B2FF9E
 7. #694A38, #A61C3C, #F4AC45, #92BFB1, #DAD6D6
 
