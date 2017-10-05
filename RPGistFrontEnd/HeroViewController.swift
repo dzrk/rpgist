@@ -126,6 +126,28 @@ class HeroViewController: UIViewController {
     @IBAction func loginAndSignUp(sender: AnyObject) {
         let userAlert = UIAlertController(title: "Login/Sign up", message: "Enter email and password", preferredStyle: .alert)
         
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        userAlert.setValue(NSAttributedString(string: "Login/Sign up", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
+        userAlert.setValue(NSAttributedString(string: "Enter email and password", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        
+        let subview1 = userAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        userAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         userAlert.addTextField { (textfield:UITextField) in
             textfield.placeholder = "email"
         }
@@ -156,6 +178,22 @@ class HeroViewController: UIViewController {
 //                }
 //            })
         }))
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        userAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action:UIAlertAction) in
+            //do something
+        }))
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
         
         self.present(userAlert, animated: true, completion: nil)
     }

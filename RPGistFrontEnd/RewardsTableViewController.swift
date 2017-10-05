@@ -191,7 +191,10 @@ extension RewardsTableViewController: UICollectionViewDelegate {
             self.present(alert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Confirmation", message: "Change current " + name + "?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action:UIAlertAction) in
+                // Do something
+            }))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction) in
                 switch name {
                     case "Main Theme Colour":
                         //self.navigationController?.navigationBar.tintColor = Model.get.mainColours[indexPath.row]
@@ -242,9 +245,7 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         break
                 }
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action:UIAlertAction) in
-                // Do something
-            }))
+            
             self.present(alert, animated: true, completion: nil)
         }
 

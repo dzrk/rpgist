@@ -19,7 +19,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let categoryList: [String] = ["School", "Work", "Personal", "Shopping"]
     var test: String?
     
-    
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
     
@@ -123,6 +122,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.accessibilityIdentifier = "FirstViewTable"
     }
     
     //swipe to remove
@@ -159,6 +160,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
         backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         //#85C7F2 baby blue
+        
+        cell.accessibilityIdentifier = "FirstViewCell_\(indexPath.row)"
         
         //*********************************************************//
         //*********************************************************//

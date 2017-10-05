@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RPGistFrontEnd/HeroViewController.swift"
-            timestampString = "528813346.492376"
+            filePath = "RPGistFrontEndUITests/RPGistFrontEndUITests.swift"
+            timestampString = "528885437.049885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "calcXP()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "testAddButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
