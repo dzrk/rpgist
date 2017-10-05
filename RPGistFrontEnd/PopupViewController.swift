@@ -55,6 +55,8 @@ class PopupViewController: UIViewController{
         self.saveBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         self.cancelBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         
+        self.notes.accessibilityIdentifier = "notes"
+        
         //*********************************************************//
         //*********************************************************//
         //*********************************************************//

@@ -44,6 +44,20 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         default:
             print("NOPE")
         }
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
+        taskView.accessibilityIdentifier = "TasksTable"
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
     }
     
     //*********************************************************//
@@ -169,6 +183,8 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
         backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
         //#85C7F2 baby blue
+        
+        cell.accessibilityIdentifier = "TasksCell_\(indexPath.row)"
         
         //*********************************************************//
         //*********************************************************//
