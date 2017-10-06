@@ -81,6 +81,7 @@ File Changes:
 ---
 File Changes:
 - Added CompletedTasksViewController
+- Modified some files
 
 ---
 ### Themes
