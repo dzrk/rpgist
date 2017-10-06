@@ -46,7 +46,7 @@ class Model
                             UIColor(red:0.69, green:0.99, blue:0.25, alpha:1.0),
                             UIColor(red:0.65, green:0.11, blue:0.24, alpha:1.0)]
     
-    var textColours = [UIColor(red:1.00, green:0.84, blue:0.73, alpha:1.0),
+    var textColours = [UIColor(red:1.00, green:0.93, blue:0.87, alpha:1.0),
                        UIColor(red:0.85, green:0.86, blue:0.95, alpha:1.0),
                        UIColor(red:0.95, green:0.91, blue:0.82, alpha:1.0),
                        UIColor(red:0.85, green:0.82, blue:0.87, alpha:1.0),

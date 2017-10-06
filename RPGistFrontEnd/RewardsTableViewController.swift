@@ -12,6 +12,36 @@ class RewardsTableViewController: UITableViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var gold: UIBarButtonItem!
     
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    @IBAction func storeBtnPressed(sender: AnyObject) {
+        let storeAlert = UIAlertController(title: "Store", message: "Store coming soon!", preferredStyle: .alert)
+        storeAlert.setValue(NSAttributedString(string: "Store", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
+        storeAlert.setValue(NSAttributedString(string: "Store coming soon!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        
+        let subview1 = storeAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        storeAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        
+        storeAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction) in
+            //do something
+        }))
+        self.present(storeAlert, animated: true, completion: nil)
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
     fileprivate var tableViewCellCoordinator: [IndexPath: Int] = [:]
     
     override func viewDidLoad() {

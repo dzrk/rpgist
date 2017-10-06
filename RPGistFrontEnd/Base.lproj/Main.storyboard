@@ -900,15 +900,38 @@
                                     <action selector="addTaskWithSender:" destination="W4Q-B2-lZD" eventType="touchUpInside" id="liY-nc-mhV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI0-MK-VoE">
+                                <rect key="frame" x="40" y="597" width="70" height="70"/>
+                                <color key="backgroundColor" cyan="0.64001196622848511" magenta="0.0" yellow="0.80419921875" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="936-Bl-4oe"/>
+                                    <constraint firstAttribute="width" constant="70" id="sUY-9z-ZXC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Hu6-sz-6Sq" kind="show" id="BsW-Lg-QeJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zI0-MK-VoE" firstAttribute="leading" secondItem="JSC-er-Z71" secondAttribute="leadingMargin" constant="20" id="KxK-RZ-wby"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I8A-I1-zC2" secondAttribute="trailing" constant="20" id="SQf-Hb-VST"/>
                             <constraint firstItem="8YM-4B-HpG" firstAttribute="top" secondItem="I8A-I1-zC2" secondAttribute="bottom" constant="20" id="pgf-eN-lnp"/>
+                            <constraint firstItem="8YM-4B-HpG" firstAttribute="top" secondItem="zI0-MK-VoE" secondAttribute="bottom" constant="20" id="rc9-My-PUb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="I8A-I1-zC2" id="iI5-iK-6Jp"/>
+                        <outlet property="doneBtn" destination="zI0-MK-VoE" id="wcy-Aq-eaA"/>
                         <outlet property="taskView" destination="r5D-Ax-Xb9" id="c4W-Bd-rlp"/>
                         <segue destination="nyN-cl-3z9" kind="show" identifier="TasksToCustom" id="pAy-bE-cph"/>
                     </connections>
@@ -916,6 +939,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePJ-Gd-H10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2354" y="-701"/>
+        </scene>
+        <!--Completed Tasks View Controller-->
+        <scene sceneID="mKf-kS-KUL">
+            <objects>
+                <tableViewController id="Hu6-sz-6Sq" customClass="CompletedTasksViewController" customModule="RPGistFrontEnd" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JzZ-b1-YMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Hu6-sz-6Sq" id="mQb-61-QHJ"/>
+                            <outlet property="delegate" destination="Hu6-sz-6Sq" id="LsR-Ue-raK"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="completedTaskView" destination="JzZ-b1-YMZ" id="F30-ab-HSE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYt-V4-Nd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2354" y="62"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1377,7 +1421,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Rewards" id="Nqn-fY-GQg">
-                        <barButtonItem key="rightBarButtonItem" title="Gold" id="iON-Aa-HHh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Gold" id="iON-Aa-HHh">
+                            <connections>
+                                <action selector="storeBtnPressedWithSender:" destination="A8j-B4-trM" id="RgB-uw-hay"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="gold" destination="iON-Aa-HHh" id="h9e-jK-5j9"/>

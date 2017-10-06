@@ -103,7 +103,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //*********************************************************//
         
         self.addBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.addBtn.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.addBtn.setTitleColor(Model.get.textColours[Model.get.mainColourChosenIndex], for: .normal)
         self.tableView.reloadData()
         
         //*********************************************************//
@@ -139,7 +139,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //swipe to remove
-    func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //do something
         }

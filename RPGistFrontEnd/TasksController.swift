@@ -67,6 +67,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     //*********************************************************//
     
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var doneBtn: UIButton!
     
     //*********************************************************//
     //*********************************************************//
@@ -84,7 +85,9 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         
         self.addBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.addBtn.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        self.addBtn.setTitleColor(Model.get.textColours[Model.get.mainColourChosenIndex], for: .normal)
+        self.doneBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.doneBtn.setTitleColor(Model.get.textColours[Model.get.mainColourChosenIndex], for: .normal)
         self.taskView.reloadData()
         
         //*********************************************************//
@@ -155,6 +158,15 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            
 //            task.itemRef?.removeValue()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let complete = UITableViewRowAction(style: .default, title: "Complete") { action, index in
+            //do something
+        }
+        complete.backgroundColor = UIColor.green
+        
+        return [complete]
     }
     
     // number of rows in table view
