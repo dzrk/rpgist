@@ -75,6 +75,13 @@ File Changes:
   - Modification and addition of colours for themes
 
 
+
+---
+### 6 October
+---
+File Changes:
+- Added CompletedTasksViewController
+
 ---
 ### Themes
 ---
