@@ -20,15 +20,15 @@ class RewardsTableViewController: UITableViewController {
     
     @IBAction func storeBtnPressed(sender: AnyObject) {
         let storeAlert = UIAlertController(title: "Store", message: "Store coming soon!", preferredStyle: .alert)
-        storeAlert.setValue(NSAttributedString(string: "Store", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
-        storeAlert.setValue(NSAttributedString(string: "Store coming soon!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        storeAlert.setValue(NSAttributedString(string: "Store", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        storeAlert.setValue(NSAttributedString(string: "Store coming soon!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
         
         let subview1 = storeAlert.view.subviews.first! as UIView
         let subview2 = subview1.subviews.first! as UIView
         let view = subview2.subviews.first! as UIView
-        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
-        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        storeAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        storeAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
         
         storeAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction) in
             //do something
@@ -68,7 +68,7 @@ class RewardsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -278,7 +278,7 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         //*********************************************************//
                         //*********************************************************//
                         
-                        Model.get.mainColourChosenIndex = indexPath.row
+                        indexChosen.mainColour = indexPath.row
                     
                         //*********************************************************//
                         //*********************************************************//
@@ -302,11 +302,10 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                         self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexPath.row]
                         self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[indexPath.row]
                     
-                        Model.get.secondaryColourChosenIndex = indexPath.row
+                        indexChosen.secondaryColour = indexPath.row
                     
                     case "Profile Picture":
-                        Model.get.profilePictureChosenIndex = indexPath.row
-                    
+                        indexChosen.profilePicture = indexPath.row
                     //*********************************************************//
                     //*********************************************************//
                     //*********************************************************//

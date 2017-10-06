@@ -76,7 +76,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     //*********************************************************//
     
     override func viewWillAppear(_ animated: Bool) {
-        self.taskView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.taskView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         
         //*********************************************************//
         //*********************************************************//
@@ -84,10 +84,10 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         //*********************************************************//
         
-        self.addBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.addBtn.setTitleColor(Model.get.textColours[Model.get.mainColourChosenIndex], for: .normal)
-        self.doneBtn.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.doneBtn.setTitleColor(Model.get.textColours[Model.get.mainColourChosenIndex], for: .normal)
+        self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
+        self.doneBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.doneBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
         self.taskView.reloadData()
         
         //*********************************************************//
@@ -106,15 +106,15 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         //*********************************************************//
         
-        taskAlert.setValue(NSAttributedString(string: "New Task", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedTitle")
-        taskAlert.setValue(NSAttributedString(string: "Enter your task name", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[Model.get.mainColourChosenIndex]]), forKey: "attributedMessage")
+        taskAlert.setValue(NSAttributedString(string: "New Task", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        taskAlert.setValue(NSAttributedString(string: "Enter your task name", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
         
         let subview1 = taskAlert.view.subviews.first! as UIView
         let subview2 = subview1.subviews.first! as UIView
         let view = subview2.subviews.first! as UIView
-        view.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
-        view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        taskAlert.view.tintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        taskAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
         
         //*********************************************************//
         //*********************************************************//
@@ -160,15 +160,6 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let complete = UITableViewRowAction(style: .default, title: "Complete") { action, index in
-            //do something
-        }
-        complete.backgroundColor = UIColor.green
-        
-        return [complete]
-    }
-    
     // number of rows in table view
     func tableView(_ taskView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chosenList.count
@@ -176,6 +167,12 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // create a cell for each table view row
     func tableView(_ taskView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.taskView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         // set the text from the data model
@@ -187,13 +184,13 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         //*********************************************************//
         
-        cell.textLabel?.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        cell.textLabel?.textColor = Model.get.textColours[indexChosen.mainColour]
         
         //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
-        cell.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        cell.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         let backgroundView = UIView()
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
-        backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         //#85C7F2 baby blue
         
         cell.accessibilityIdentifier = "TasksCell_\(indexPath.row)"

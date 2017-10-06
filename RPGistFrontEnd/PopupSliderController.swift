@@ -79,21 +79,21 @@ class PopupSliderController: UIViewController
         //*********************************************************//
         //*********************************************************//
         
-        self.popupSlider.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
-        self.titleLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.difficultyLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.difficulty.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.imporatanceLbl.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.importance.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.sliderDiff.thumbTintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.sliderDiff.maximumTrackTintColor = Model.get.extraColours2[Model.get.mainColourChosenIndex]
-        self.sliderDiff.minimumTrackTintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.sliderImp.thumbTintColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.sliderImp.maximumTrackTintColor = Model.get.extraColours2[Model.get.mainColourChosenIndex]
-        self.sliderImp.minimumTrackTintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.totalExp.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
-        self.saveBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
-        self.cancelBtn.tintColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        self.popupSlider.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.difficultyLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.difficulty.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.imporatanceLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.importance.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.sliderDiff.thumbTintColor = Model.get.textColours[indexChosen.mainColour]
+        self.sliderDiff.maximumTrackTintColor = Model.get.extraColours2[indexChosen.mainColour]
+        self.sliderDiff.minimumTrackTintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.sliderImp.thumbTintColor = Model.get.textColours[indexChosen.mainColour]
+        self.sliderImp.maximumTrackTintColor = Model.get.extraColours2[indexChosen.mainColour]
+        self.sliderImp.minimumTrackTintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.totalExp.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
         
         self.sliderDiff.accessibilityIdentifier = "sliderDiff"
         self.sliderImp.accessibilityIdentifier = "sliderImp"

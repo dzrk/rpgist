@@ -14,7 +14,7 @@ class CompletedTasksViewController: UITableViewController {
     let cellReuseIdentifier = "cell"
     
     override func viewWillAppear(_ animated: Bool) {
-        self.completedTaskView.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        self.completedTaskView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.completedTaskView.reloadData()
     }
     
@@ -55,13 +55,13 @@ class CompletedTasksViewController: UITableViewController {
         //*********************************************************//
         //*********************************************************//
         
-        cell.textLabel?.textColor = Model.get.textColours[Model.get.mainColourChosenIndex]
+        cell.textLabel?.textColor = Model.get.textColours[indexChosen.mainColour]
         
         //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
-        cell.backgroundColor = Model.get.mainColours[Model.get.mainColourChosenIndex]
+        cell.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         let backgroundView = UIView()
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
-        backgroundView.backgroundColor = Model.get.extraColours1[Model.get.mainColourChosenIndex]
+        backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         //#85C7F2 baby blue
         
         cell.accessibilityIdentifier = "CompletedTasksViewCell_\(indexPath.row)"

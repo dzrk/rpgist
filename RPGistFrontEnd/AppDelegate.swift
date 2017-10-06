@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //*********************************************************//
         //*********************************************************//
         
-        UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[Model.get.secondaryColourChosenIndex]
-        UINavigationBar.appearance().tintColor = Model.get.extraColours1[Model.get.secondaryColourChosenIndex]
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[Model.get.secondaryColourChosenIndex]]
+        UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexChosen.secondaryColour]
+        UINavigationBar.appearance().tintColor = Model.get.extraColours1[indexChosen.secondaryColour]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexChosen.secondaryColour]]
         
         //*********************************************************//
         //*********************************************************//

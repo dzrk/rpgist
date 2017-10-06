@@ -115,7 +115,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exp-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-1O-407">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-1O-407">
                                                         <rect key="frame" x="35" y="34.666666666666657" width="85.333333333333343" height="86"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="8sz-1O-407" secondAttribute="height" multiplier="1:1" id="LKs-l0-LRK"/>
@@ -130,7 +130,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-Mh-ZYQ">
                                                         <rect key="frame" x="35" y="34.666666666666657" width="85.333333333333343" height="86"/>
                                                         <connections>
-                                                            <segue destination="l0V-B1-sro" kind="presentation" id="VLr-xb-Thk"/>
+                                                            <segue destination="l0V-B1-sro" kind="presentation" modalPresentationStyle="overCurrentContext" id="SdL-ji-vBb"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -216,7 +216,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coins-icon" translatesAutoresizingMaskIntoConstraints="NO" id="S26-Y3-im5">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="S26-Y3-im5">
                                                         <rect key="frame" x="35.666666666666686" y="35.333333333333314" width="85.333333333333314" height="85.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="S26-Y3-im5" secondAttribute="height" multiplier="1:1" id="U7m-gg-6aw"/>
@@ -309,7 +309,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notepad-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7P0-Rc-Qvv">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notes" translatesAutoresizingMaskIntoConstraints="NO" id="7P0-Rc-Qvv">
                                                         <rect key="frame" x="34.666666666666679" y="35" width="85.333333333333314" height="85.333333333333314"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="7P0-Rc-Qvv" secondAttribute="height" multiplier="1:1" id="vuJ-1R-wIU"/>
@@ -318,7 +318,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcN-Xp-ELc">
                                                         <rect key="frame" x="34.666666666666679" y="35" width="85.333333333333314" height="85.333333333333314"/>
                                                         <connections>
-                                                            <segue destination="f95-Ig-vA0" kind="presentation" id="lbM-Lc-P9z"/>
+                                                            <segue destination="f95-Ig-vA0" kind="presentation" modalPresentationStyle="overCurrentContext" id="lbM-Lc-P9z"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -404,7 +404,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-cr-Lk7">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-cr-Lk7">
                                                         <rect key="frame" x="35.666666666666686" y="35" width="85.333333333333314" height="85.333333333333314"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Rnc-cr-Lk7" secondAttribute="height" multiplier="1:1" id="zhJ-Os-v9b"/>
@@ -657,9 +657,13 @@
                         <outlet property="description3" destination="pfb-R1-oUo" id="Fvw-Lb-GDE"/>
                         <outlet property="description4" destination="B4V-uN-HTr" id="HN4-D8-zuw"/>
                         <outlet property="dueBtn" destination="PUt-4V-26Z" id="6Bo-bT-gzm"/>
+                        <outlet property="dueImg" destination="Rnc-cr-Lk7" id="fzn-Fp-6i6"/>
                         <outlet property="expBtn" destination="bPK-Mh-ZYQ" id="BW1-AL-jCv"/>
+                        <outlet property="expImg" destination="8sz-1O-407" id="TRM-Si-Ikx"/>
                         <outlet property="goldBtn" destination="wRB-uM-Ulh" id="Ip9-lC-QKW"/>
+                        <outlet property="goldImg" destination="S26-Y3-im5" id="lTc-A7-s1g"/>
                         <outlet property="notesBtn" destination="AcN-Xp-ELc" id="08q-IQ-MLR"/>
+                        <outlet property="notesImg" destination="7P0-Rc-Qvv" id="Moa-Mw-CKY"/>
                         <outlet property="placeholder1" destination="GRZ-6h-eDh" id="xqS-jX-TF4"/>
                         <outlet property="placeholder2" destination="M0n-3l-pzr" id="P6h-Qe-Eia"/>
                         <outlet property="placeholder3" destination="sDH-wb-fIA" id="Dua-Wt-2CR"/>
@@ -985,7 +989,7 @@
         <scene sceneID="UBz-Ge-5Xg">
             <objects>
                 <navigationController storyboardIdentifier="NavCon1" title="Quests" automaticallyAdjustsScrollViewInsets="NO" id="SwD-t9-40C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Quest" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Quest" image="checklist" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u8r-4J-vnP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1323,7 +1327,7 @@
         <scene sceneID="p1s-tj-l90">
             <objects>
                 <navigationController storyboardIdentifier="NavCon3" title="Rewards" automaticallyAdjustsScrollViewInsets="NO" id="Sxa-5c-PIU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Rewards" image="first" id="PW1-gp-M9O"/>
+                    <tabBarItem key="tabBarItem" title="Rewards" image="rewards" id="PW1-gp-M9O"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJk-3o-TgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1440,7 +1444,7 @@
         <scene sceneID="Zdt-TM-OQU">
             <objects>
                 <navigationController storyboardIdentifier="NavCon4" title="Hero" automaticallyAdjustsScrollViewInsets="NO" id="AqH-kX-qPR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Hero" image="first" id="fHh-9E-EH4"/>
+                    <tabBarItem key="tabBarItem" title="Hero" image="hero" id="fHh-9E-EH4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G67-Ba-kSv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1811,10 +1815,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar-icon" width="128" height="128"/>
-        <image name="coins-icon" width="128" height="128"/>
-        <image name="exp-icon" width="500" height="500"/>
-        <image name="first" width="30" height="30"/>
-        <image name="notepad-icon" width="128" height="128"/>
+        <image name="calendar" width="60" height="60"/>
+        <image name="checklist" width="29" height="29"/>
+        <image name="coin" width="60" height="60"/>
+        <image name="experience" width="60" height="60"/>
+        <image name="hero" width="29" height="29"/>
+        <image name="notes" width="60" height="60"/>
+        <image name="rewards" width="29" height="29"/>
     </resources>
 </document>
