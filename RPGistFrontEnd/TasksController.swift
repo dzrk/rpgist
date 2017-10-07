@@ -14,7 +14,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     let personalList: [String] = ["Salad for dinner", "Haircut", "Go to the gym"]
     let shoppingList: [String] = ["Eggs", "Milk", "Bread"]
     
-    let cellReuseIdentifier = "cell"
+    //let cellReuseIdentifier = "cell" !!!!!
     let cellChosen = varPassed.catToTask
     var chosenList: [String] = []
     
@@ -26,7 +26,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         
         // Register the table view cell class and its reuse id
-        self.taskView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        //self.taskView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier) !!!!!!!!!!!!!!
         
         // This view controller itself will provide the delegate methods and row data for the table view.
         taskView.delegate = self
@@ -67,7 +67,6 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     //*********************************************************//
     
     @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var doneBtn: UIButton!
     
     //*********************************************************//
     //*********************************************************//
@@ -86,8 +85,6 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
-        self.doneBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
-        self.doneBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
         self.taskView.reloadData()
         
         //*********************************************************//
@@ -160,9 +157,31 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     // number of rows in table view
     func tableView(_ taskView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.chosenList.count
+        switch section {
+            case 0:
+                return self.chosenList.count
+            case 1:
+                return 2 //change this number
+            default:
+                return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+            case 0:
+                return "Not Completed"
+            case 1:
+                return "Completed"
+            default:
+                return "Error!"
+        }
     }
     
     // create a cell for each table view row
@@ -174,17 +193,32 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //*********************************************************//
         
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.taskView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        // set the text from the data model
-        cell.textLabel?.text = self.chosenList[indexPath.row]
+        let cell = self.taskView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TasksViewCellController
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
-        cell.textLabel?.textColor = Model.get.textColours[indexChosen.mainColour]
+        switch indexPath.section {
+            case 0:
+                // set the text from the data model
+                cell.taskName.text = self.chosenList[indexPath.row]
+                cell.taskName.textColor = Model.get.textColours[indexChosen.mainColour]
+                cell.taskDetailsLbl.text = "1 exp, 1 g"
+                cell.taskDetailsLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+                cell.checkImg.image = UIImage(named: "first")?.withRenderingMode(.alwaysTemplate)
+                cell.checkImg.tintColor = Model.get.secondaryColours[indexChosen.mainColour]
+                cell.accessibilityIdentifier = "TasksCell_\(indexPath.row)"
+            case 1:
+                // set the text from the data model
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "Completed Task " + String(indexPath.row + 1))
+                attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+                cell.taskName.attributedText = attributeString
+                cell.taskName.textColor = Model.get.textColours[indexChosen.mainColour].withAlphaComponent(0.3)
+                cell.taskDetailsLbl.text = "0 exp, 0 g"
+                cell.taskDetailsLbl.textColor = Model.get.textColours[indexChosen.mainColour].withAlphaComponent(0.3)
+                cell.checkImg.image = UIImage(named: "second")?.withRenderingMode(.alwaysTemplate)
+                cell.checkImg.tintColor = Model.get.secondaryColours[indexChosen.mainColour]
+                cell.accessibilityIdentifier = "CompletedTasksCell_\(indexPath.row)"
+            default:
+                cell.taskName.text = "Error!"
+        }
         
         //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
         cell.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
@@ -192,8 +226,6 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
         backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         //#85C7F2 baby blue
-        
-        cell.accessibilityIdentifier = "TasksCell_\(indexPath.row)"
         
         //*********************************************************//
         //*********************************************************//

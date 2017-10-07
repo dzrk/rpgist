@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320395A11F87533C008A9F1C /* CompletedTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320395A01F87533C008A9F1C /* CompletedTasksViewController.swift */; };
+		0DDC02EE1F88A7E6001DBA95 /* TasksViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDC02ED1F88A7E6001DBA95 /* TasksViewCellController.swift */; };
+		0DDC02F01F88ACE8001DBA95 /* FirstViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDC02EF1F88ACE8001DBA95 /* FirstViewCellController.swift */; };
 		321827D51F71FA1700F3B3DB /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */; };
 		324BDF5C1F7394A900F040C9 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF5B1F7394A900F040C9 /* HeroViewController.swift */; };
 		324BDF5E1F73957E00F040C9 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324BDF5D1F73957E00F040C9 /* Hero.swift */; };
@@ -51,7 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		320395A01F87533C008A9F1C /* CompletedTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTasksViewController.swift; sourceTree = "<group>"; };
+		0DDC02ED1F88A7E6001DBA95 /* TasksViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewCellController.swift; sourceTree = "<group>"; };
+		0DDC02EF1F88ACE8001DBA95 /* FirstViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewCellController.swift; sourceTree = "<group>"; };
 		321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
 		324BDF5B1F7394A900F040C9 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
 		324BDF5D1F73957E00F040C9 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
@@ -174,8 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				3277B7AF1F6A61D5006C7785 /* FirstViewController.swift */,
+				0DDC02EF1F88ACE8001DBA95 /* FirstViewCellController.swift */,
 				3277B7DD1F6A6278006C7785 /* PopupViewController.swift */,
 				3277B7E01F6A62A5006C7785 /* TasksController.swift */,
+				0DDC02ED1F88A7E6001DBA95 /* TasksViewCellController.swift */,
 				3277B7EC1F6A634B006C7785 /* PopupSliderController.swift */,
 				321827D41F71FA1700F3B3DB /* TaskDetailsController.swift */,
 				324BDF5B1F7394A900F040C9 /* HeroViewController.swift */,
@@ -183,7 +187,6 @@
 				324BDF651F73C48200F040C9 /* RewardsTableViewController.swift */,
 				324BDF671F73C52000F040C9 /* RewardsTableViewCellController.swift */,
 				324BDF691F73D09C00F040C9 /* RewardsCollectionViewCellController.swift */,
-				320395A01F87533C008A9F1C /* CompletedTasksViewController.swift */,
 				326B042A1F84C85A00038768 /* Unused */,
 			);
 			name = Controllers;
@@ -336,13 +339,14 @@
 			files = (
 				324BDF5C1F7394A900F040C9 /* HeroViewController.swift in Sources */,
 				3277B7B21F6A61D5006C7785 /* SecondViewController.swift in Sources */,
+				0DDC02F01F88ACE8001DBA95 /* FirstViewCellController.swift in Sources */,
 				3277B7E11F6A62A5006C7785 /* TasksController.swift in Sources */,
 				3277B7ED1F6A634B006C7785 /* PopupSliderController.swift in Sources */,
 				3277B7AE1F6A61D5006C7785 /* AppDelegate.swift in Sources */,
 				3277B7B01F6A61D5006C7785 /* FirstViewController.swift in Sources */,
 				324BDF621F7396D100F040C9 /* User.swift in Sources */,
-				320395A11F87533C008A9F1C /* CompletedTasksViewController.swift in Sources */,
 				3277B7DE1F6A6278006C7785 /* PopupViewController.swift in Sources */,
+				0DDC02EE1F88A7E6001DBA95 /* TasksViewCellController.swift in Sources */,
 				324BDF681F73C52000F040C9 /* RewardsTableViewCellController.swift in Sources */,
 				3277B7F21F6A6385006C7785 /* Model.swift in Sources */,
 				324BDF601F7395AF00F040C9 /* Task.swift in Sources */,
@@ -507,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RPGistFrontEnd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Oetomo.RPGistFrontEnd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -519,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RPGistFrontEnd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Oetomo.RPGistFrontEnd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
