@@ -25,7 +25,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbRef = Database.database().reference().child("user-details")
+        dbRef = Database.database().reference().child(varPassed.uid)
         startObservingDB()
         // Register the table view cell class and its reuse id
         self.taskView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -80,12 +80,16 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     //swipe to remove task
     func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-                  let task = tasks[indexPath.row]
-            
-                  task.itemRef?.removeValue()
+              let task = tasks[indexPath.row]
+        
+              task.itemRef?.removeValue()
         }
     }
-    
+
+    func tableView(_ taskView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+    }
+
     // number of rows in table view
     func tableView(_ taskView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count

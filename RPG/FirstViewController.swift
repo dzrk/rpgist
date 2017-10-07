@@ -1,22 +1,18 @@
 import UIKit
 import FirebaseDatabase
-struct varPassed {
-    static var catToTask = ""
-    static var taskToInfo = ""
-    static var popupPassed = ""
-}
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
     var dbRef:DatabaseReference!
     // don't forget to hook this up from the storyboard
     @IBOutlet var tableView: UITableView!
-    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbRef = Database.database().reference().child("user-details")
+//        print("TESTTTT\(User)")
+        dbRef = Database.database().reference().child(varPassed.uid)
         startObservingDB()
         // Register the table view cell class and its reuse id
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)

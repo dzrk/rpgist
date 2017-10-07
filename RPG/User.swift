@@ -13,6 +13,7 @@ struct User {
     let uid:String
     let email:String
     
+    
     init(userData:User) {
         uid = userData.uid
         email = userData.email
