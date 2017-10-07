@@ -19,13 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
 
-//        Auth.auth().signIn(withEmail: "test@derrick.com", password: "123456") { (user, error) in
-//            if error == nil{
-//                print(user?.email)
-//            }else{
-//                print(error)
-//            }
-//        }
+        UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexChosen.secondaryColour]
+        UINavigationBar.appearance().tintColor = Model.get.extraColours1[indexChosen.secondaryColour]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexChosen.secondaryColour]]
+
         
         return true
     }

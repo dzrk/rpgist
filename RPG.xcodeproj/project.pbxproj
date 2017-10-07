@@ -10,20 +10,17 @@
 		2945D0519C3105B9A9F1B08D /* Pods_RPG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B875FA31DBDDEAE163926144 /* Pods_RPG.framework */; };
 		37268341C8388162431C2B11 /* Pods_RPGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A3FE5DB96EA9167BADBDD5 /* Pods_RPGUITests.framework */; };
 		832EE71F1F51393F008568EA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE71E1F51393F008568EA /* Model.swift */; };
-		832EE7231F51AF4E008568EA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE7221F51AF4E008568EA /* CustomCell.swift */; };
-		832EE7251F51B093008568EA /* CustomCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE7241F51B093008568EA /* CustomCollectionController.swift */; };
 		832EE7271F528265008568EA /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE7261F528265008568EA /* PopupViewController.swift */; };
-		832EE72D1F52A702008568EA /* RewardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE72C1F52A702008568EA /* RewardCollectionViewController.swift */; };
-		832EE72F1F52A7AD008568EA /* RewardCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832EE72E1F52A7AD008568EA /* RewardCustomCell.swift */; };
 		837321C81F42691C00CBB174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321C71F42691C00CBB174 /* AppDelegate.swift */; };
 		837321CA1F42691C00CBB174 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321C91F42691C00CBB174 /* FirstViewController.swift */; };
-		837321CC1F42691C00CBB174 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321CB1F42691C00CBB174 /* SecondViewController.swift */; };
 		837321CF1F42691C00CBB174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837321CD1F42691C00CBB174 /* Main.storyboard */; };
 		837321D11F42691C00CBB174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837321D01F42691C00CBB174 /* Assets.xcassets */; };
 		837321D41F42691C00CBB174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837321D21F42691C00CBB174 /* LaunchScreen.storyboard */; };
 		837321DF1F42691C00CBB174 /* RPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321DE1F42691C00CBB174 /* RPGTests.swift */; };
 		837321EA1F42691C00CBB174 /* RPGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837321E91F42691C00CBB174 /* RPGUITests.swift */; };
 		838EA0791F739473008806E9 /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838EA0781F739473008806E9 /* TaskDetailsController.swift */; };
+		838FE0A61F88BFC100AEFCCA /* FirstViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838FE0A51F88BFC100AEFCCA /* FirstViewCellController.swift */; };
+		838FE0A81F88C29B00AEFCCA /* TaskViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838FE0A71F88C29B00AEFCCA /* TaskViewCellController.swift */; };
 		83B692751F7BAA3D00EA0270 /* RewardsCollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B692741F7BAA3D00EA0270 /* RewardsCollectionViewCellController.swift */; };
 		83B692771F7BAA7E00EA0270 /* RewardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B692761F7BAA7E00EA0270 /* RewardsTableViewController.swift */; };
 		83B692791F7BAE7700EA0270 /* RewardsTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B692781F7BAE7700EA0270 /* RewardsTableViewCellController.swift */; };
@@ -58,15 +55,10 @@
 /* Begin PBXFileReference section */
 		03DE4CF21CB9D3830495F160 /* Pods_RPGTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPGTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		832EE71E1F51393F008568EA /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		832EE7221F51AF4E008568EA /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		832EE7241F51B093008568EA /* CustomCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionController.swift; sourceTree = "<group>"; };
 		832EE7261F528265008568EA /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
-		832EE72C1F52A702008568EA /* RewardCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCollectionViewController.swift; sourceTree = "<group>"; };
-		832EE72E1F52A7AD008568EA /* RewardCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCustomCell.swift; sourceTree = "<group>"; };
 		837321C41F42691C00CBB174 /* RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837321C71F42691C00CBB174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837321C91F42691C00CBB174 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		837321CB1F42691C00CBB174 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		837321CE1F42691C00CBB174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		837321D01F42691C00CBB174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837321D31F42691C00CBB174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +70,8 @@
 		837321E91F42691C00CBB174 /* RPGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGUITests.swift; sourceTree = "<group>"; };
 		837321EB1F42691C00CBB174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		838EA0781F739473008806E9 /* TaskDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
+		838FE0A51F88BFC100AEFCCA /* FirstViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewCellController.swift; sourceTree = "<group>"; };
+		838FE0A71F88C29B00AEFCCA /* TaskViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewCellController.swift; sourceTree = "<group>"; };
 		83B692741F7BAA3D00EA0270 /* RewardsCollectionViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsCollectionViewCellController.swift; sourceTree = "<group>"; };
 		83B692761F7BAA7E00EA0270 /* RewardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsTableViewController.swift; sourceTree = "<group>"; };
 		83B692781F7BAE7700EA0270 /* RewardsTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsTableViewCellController.swift; sourceTree = "<group>"; };
@@ -153,14 +147,10 @@
 		832EE7281F529906008568EA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				837321CB1F42691C00CBB174 /* SecondViewController.swift */,
 				832EE7261F528265008568EA /* PopupViewController.swift */,
 				837321C91F42691C00CBB174 /* FirstViewController.swift */,
+				838FE0A51F88BFC100AEFCCA /* FirstViewCellController.swift */,
 				83F66A221F45827500B8CE3A /* TasksController.swift */,
-				832EE7241F51B093008568EA /* CustomCollectionController.swift */,
-				832EE7221F51AF4E008568EA /* CustomCell.swift */,
-				832EE72C1F52A702008568EA /* RewardCollectionViewController.swift */,
-				832EE72E1F52A7AD008568EA /* RewardCustomCell.swift */,
 				83C7202E1F64F3D800474501 /* PopupSliderController.swift */,
 				83C720361F6A349400474501 /* HeroViewController.swift */,
 				838EA0781F739473008806E9 /* TaskDetailsController.swift */,
@@ -168,6 +158,7 @@
 				83B692761F7BAA7E00EA0270 /* RewardsTableViewController.swift */,
 				83B692781F7BAE7700EA0270 /* RewardsTableViewCellController.swift */,
 				83B6927A1F81F3E200EA0270 /* PopupDueDateController.swift */,
+				838FE0A71F88C29B00AEFCCA /* TaskViewCellController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -538,24 +529,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837321CC1F42691C00CBB174 /* SecondViewController.swift in Sources */,
 				837321C81F42691C00CBB174 /* AppDelegate.swift in Sources */,
 				83F66A231F45827500B8CE3A /* TasksController.swift in Sources */,
 				838EA0791F739473008806E9 /* TaskDetailsController.swift in Sources */,
-				832EE7251F51B093008568EA /* CustomCollectionController.swift in Sources */,
 				837321CA1F42691C00CBB174 /* FirstViewController.swift in Sources */,
 				83B692771F7BAA7E00EA0270 /* RewardsTableViewController.swift in Sources */,
-				832EE7231F51AF4E008568EA /* CustomCell.swift in Sources */,
 				83B692791F7BAE7700EA0270 /* RewardsTableViewCellController.swift in Sources */,
-				832EE72D1F52A702008568EA /* RewardCollectionViewController.swift in Sources */,
 				83B692751F7BAA3D00EA0270 /* RewardsCollectionViewCellController.swift in Sources */,
 				83C720391F6A6C4400474501 /* Task.swift in Sources */,
-				832EE72F1F52A7AD008568EA /* RewardCustomCell.swift in Sources */,
+				838FE0A61F88BFC100AEFCCA /* FirstViewCellController.swift in Sources */,
 				83C720371F6A349400474501 /* HeroViewController.swift in Sources */,
 				83C720331F6A29A400474501 /* User.swift in Sources */,
 				832EE71F1F51393F008568EA /* Model.swift in Sources */,
 				83C7202F1F64F3D800474501 /* PopupSliderController.swift in Sources */,
 				83C720351F6A2D8300474501 /* Hero.swift in Sources */,
+				838FE0A81F88C29B00AEFCCA /* TaskViewCellController.swift in Sources */,
 				832EE7271F528265008568EA /* PopupViewController.swift in Sources */,
 				83B6927B1F81F3E200EA0270 /* PopupDueDateController.swift in Sources */,
 			);

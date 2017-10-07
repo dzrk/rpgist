@@ -12,6 +12,10 @@ class PopupViewController: UIViewController{
     var dbRef:DatabaseReference!
     
     @IBOutlet weak var textViewDesc: UITextView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+
     @IBAction func closePopup(_ sender: Any) {
         dismiss(animated:true, completion:nil)
     }
@@ -28,6 +32,19 @@ class PopupViewController: UIViewController{
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
+        
+        self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.textViewDesc.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.textViewDesc.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.textViewDesc.layer.cornerRadius = 10
+        self.textViewDesc.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15)
+        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+        
+        self.textViewDesc.accessibilityIdentifier = "notes"
+
+        
         dbRef = Database.database().reference().child(varPassed.uid)
         dbRef.child("task").child(varPassed.taskToInfo).observe(DataEventType.value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary

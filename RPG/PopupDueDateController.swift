@@ -10,6 +10,10 @@ import FirebaseDatabase
 class PopupDueDateController: UIViewController{
     var dbRef: DatabaseReference!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+
     
     var selectedDate: String?
     
@@ -34,6 +38,13 @@ class PopupDueDateController: UIViewController{
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
+        
+        self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.datePicker.setValue(Model.get.textColours[indexChosen.mainColour], forKey: "textColor")
+        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+
         dbRef = Database.database().reference().child(varPassed.uid).child("task").child(varPassed.taskToInfo)
         dbRef.observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary

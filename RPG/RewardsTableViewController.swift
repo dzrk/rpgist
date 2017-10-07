@@ -11,15 +11,36 @@ class RewardsTableViewController: UITableViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var gold: UIBarButtonItem!
     
-    fileprivate var tableViewCellCoordinator: [IndexPath: Int] = [:]
-    
+    @IBAction func storeBtnPressed(sender: AnyObject) {
+        let storeAlert = UIAlertController(title: "Store", message: "Store coming soon!", preferredStyle: .alert)
+        storeAlert.setValue(NSAttributedString(string: "Store", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        storeAlert.setValue(NSAttributedString(string: "Store coming soon!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = storeAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        storeAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        storeAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction) in
+            //do something
+        }))
+        self.present(storeAlert, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.dataSource = self
         tblView.delegate = self
         tblView.tableFooterView = UIView()
         
-        gold.title = String(HeroViewController.get.currGold) + " 🔑"
+        gold.title = String(HeroViewController.get.currGold) + " g"
+        tblView.accessibilityIdentifier = "RewardsTable"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,7 +58,8 @@ class RewardsTableViewController: UITableViewController {
         cell.collectionView.dataSource = self
         
         cell.collectionView.tag = indexPath.section
-        
+        cell.accessibilityIdentifier = "RewardsTableCell_\(indexPath.row)"
+
         return cell
     }
     
@@ -96,7 +118,7 @@ extension RewardsTableViewController: UICollectionViewDataSource {
             if (Model.get.mainColourFlags[indexPath.row]) {
                 cell.locked.isHidden = true
             } else {
-                cell.locked.text = "🔒\n\n" + String(Model.get.mainColourPrices[indexPath.row]) + " 🔑"
+                cell.locked.text = String(Model.get.mainColourPrices[indexPath.row]) + " g"
             }
         case 1:
             cell.backgroundColor = Model.get.secondaryColours[indexPath.row]
@@ -106,7 +128,7 @@ extension RewardsTableViewController: UICollectionViewDataSource {
             if (Model.get.secondaryColourFlags[indexPath.row]) {
                 cell.locked.isHidden = true
             } else {
-                cell.locked.text = "🔒\n\n" + String(Model.get.secondaryColourPrices[indexPath.row]) + " 🔑"
+                cell.locked.text = String(Model.get.secondaryColourPrices[indexPath.row]) + " g"
             }
         case 2:
             cell.backgroundColor = collectionView.backgroundColor
@@ -116,14 +138,14 @@ extension RewardsTableViewController: UICollectionViewDataSource {
             if (Model.get.profilePictureFlags[indexPath.row]) {
                 cell.locked.isHidden = true
             } else {
-                cell.locked.text = "🔒\n\n" + String(Model.get.profilePicturePrices[indexPath.row]) + " 🔑"
+                cell.locked.text = String(Model.get.profilePicturePrices[indexPath.row]) + " g"
             }
         default:
             cell.backgroundColor = cell.backgroundColor
         }
         
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.blue
+        backgroundView.backgroundColor = UIColor.lightGray
         cell.selectedBackgroundView = backgroundView
         
         cell.layer.cornerRadius = 10
@@ -137,7 +159,8 @@ extension RewardsTableViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         _ = cell as! RewardsCollectionViewCellController
-        //cell.label.text = "\(tableViewCellCoordinator.key(forValue: collectionView.tag)!) \(indexPath)"
+        collectionView.accessibilityIdentifier = "RewardsCollection"
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -145,6 +168,7 @@ extension RewardsTableViewController: UICollectionViewDelegate {
         
         var locked:Bool = false
         var price:Int = 0
+        var name:String = ""
         
         switch collectionView.tag {
         case 0:
@@ -152,22 +176,28 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                 locked = true
                 price = Model.get.mainColourPrices[indexPath.row]
             }
+            
+            name = "Main Theme Colour"
         case 1:
             if (!Model.get.secondaryColourFlags[indexPath.row]) {
                 locked = true
                 price = Model.get.secondaryColourPrices[indexPath.row]
             }
+            
+            name = "Secondary Theme Colour"
         case 2:
             if (!Model.get.profilePictureFlags[indexPath.row]) {
                 locked = true
                 price = Model.get.profilePicturePrices[indexPath.row]
             }
+            
+            name = "Profile Picture"
         default:
             locked = true
         }
         
         if (locked) {
-            let alert = UIAlertController(title: "Unlock", message: "This item is locked!\nSpend " + String(price) + " 🔑 to unlock?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Unlock", message: "This item is locked!\nSpend " + String(price) + " g to unlock?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
                 // Do something
             }))
@@ -175,10 +205,45 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                 // Do something
             }))
             self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Confirmation", message: "Change current " + name + "?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action:UIAlertAction) in
+                // Do something
+            }))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction) in
+                switch name {
+                case "Main Theme Colour":
+                    self.view?.backgroundColor = Model.get.mainColours[indexPath.row]
+                    
+                    indexChosen.mainColour = indexPath.row
+
+                    
+                case "Secondary Theme Colour":
+
+                    self.navigationController?.navigationBar.barTintColor = Model.get.secondaryColours[indexPath.row]
+                    UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexPath.row]
+                    self.navigationController?.navigationBar.tintColor = Model.get.extraColours1[indexPath.row]
+                    UINavigationBar.appearance().tintColor = Model.get.extraColours1[indexPath.row]
+                    self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexPath.row]]
+                    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexPath.row]]
+                    
+                    self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexPath.row]
+                    self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[indexPath.row]
+                    
+                    indexChosen.secondaryColour = indexPath.row
+                    
+                case "Profile Picture":
+                    indexChosen.profilePicture = indexPath.row
+
+                    
+                default:
+                    break
+                }
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
         
-        
-        //print("selected collectionViewCell with indexPath: \(indexPath) in tableViewCell with indexPath: \(tableViewCellCoordinator.key(forValue: collectionView.tag)!)")
     }
     
 }
