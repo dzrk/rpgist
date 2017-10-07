@@ -185,12 +185,28 @@ class HeroViewController: UIViewController {
                     self.loginlogout.title = "Logout"
                 }
             })
-            //alert to change name
         }))
-        
         
         self.present(userAlert, animated: true, completion: nil)
         
-
+    }
+    
+    func changeHeroName(){
+        //alert to change name goes here
+        let heroAlert = UIAlertController(title: "Hero name", message: "Choose your hero's name", preferredStyle: .alert)
+        heroAlert.addTextField { (textField:UITextField) in
+            textField.placeholder = "New hero name"
+        }
+        heroAlert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (action:UIAlertAction) in
+            if let heroContent = heroAlert.textFields?.first?.text {
+                let hero = String(heroContent)
+                
+                let heroRef = self.dbRef.child("heroName").child(hero!)
+                
+                heroRef.setValue(hero)
+                
+            }
+        }))
+        self.present(heroAlert, animated: true, completion: nil)
     }
 }

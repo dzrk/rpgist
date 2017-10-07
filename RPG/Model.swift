@@ -22,7 +22,7 @@ class Model
                               "Experience",
                               "Reward",
                               "Deadline"] //not used yet
-    var skills = ["Intelligence (2)","Willpower (1)","Strength (5)","Health (3)","Charisma (4)"]
+
     
     var rewards = ["placeholder-theme"]
     

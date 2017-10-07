@@ -68,8 +68,10 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 let ref = self.dbRef.child("task").child(taskContent)
                 let taskRef = ref.child("name")
                 let catRef = ref.child("cat")
+                let compRef = ref.child("completed")
                 taskRef.setValue(task)
                 catRef.setValue(self.cellChosen)
+                compRef.setValue(false)
                 
             }
         }))
