@@ -5,12 +5,12 @@
 TODO:
 
 - Task detail page
-  - [ ] Experience task detail
-  - [ ] Gold task detail 
-  - [ ] Due task detail (date picker)
-  - [ ] Desc task detail
+  - [x] Experience task detail
+  - [x] Gold task detail 
+  - [x] Due task detail (date picker)
+  - [x] Desc task detail
   
-- [ ] Authentication
+- [x] Authentication
 
 - [x] Exp/level algorithm
 
@@ -20,8 +20,8 @@ TODO:
 
 - [ ] Tap background to escape popup view
 
-- [ ] Colour scheme
+- [x] Colour scheme
 
-- [ ] Fix delete task gesture
+- [x] Fix delete task gesture
 
 - [ ] Connect reward page to model
