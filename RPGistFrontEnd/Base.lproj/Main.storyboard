@@ -917,6 +917,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oav-bV-aqV">
+                                                    <rect key="frame" x="8" y="11.333333333333332" width="20" height="19.666666666666664"/>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NU-J2-wyw">
                                                     <rect key="frame" x="332" y="-0.66666666666666785" width="42" height="44.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -937,12 +940,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="oav-bV-aqV" firstAttribute="width" secondItem="HXQ-xF-e0U" secondAttribute="width" id="31Z-a7-vmA"/>
                                                 <constraint firstItem="fcw-ap-idN" firstAttribute="centerY" secondItem="yo5-NQ-5rx" secondAttribute="centerY" id="AN2-GH-TUR"/>
                                                 <constraint firstItem="HXQ-xF-e0U" firstAttribute="height" secondItem="yo5-NQ-5rx" secondAttribute="height" multiplier="0.45" id="IMc-ua-I7A"/>
                                                 <constraint firstItem="fcw-ap-idN" firstAttribute="leading" secondItem="HXQ-xF-e0U" secondAttribute="trailing" constant="10" id="JRK-1y-DVk"/>
                                                 <constraint firstItem="HXQ-xF-e0U" firstAttribute="centerY" secondItem="yo5-NQ-5rx" secondAttribute="centerY" id="Nk5-2A-IKW"/>
                                                 <constraint firstItem="fcw-ap-idN" firstAttribute="height" secondItem="yo5-NQ-5rx" secondAttribute="height" id="YlF-JR-jHs"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="HXQ-xF-e0U" secondAttribute="leading" id="cz9-Ld-YNg"/>
+                                                <constraint firstItem="oav-bV-aqV" firstAttribute="centerY" secondItem="HXQ-xF-e0U" secondAttribute="centerY" id="hEt-dQ-U1u"/>
+                                                <constraint firstItem="oav-bV-aqV" firstAttribute="centerX" secondItem="HXQ-xF-e0U" secondAttribute="centerX" id="reF-eV-rMw"/>
+                                                <constraint firstItem="oav-bV-aqV" firstAttribute="height" secondItem="HXQ-xF-e0U" secondAttribute="height" id="rov-LX-aNJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -951,6 +958,7 @@
                                             <constraint firstItem="2NU-J2-wyw" firstAttribute="centerY" secondItem="5Rm-vx-WnP" secondAttribute="centerY" id="OlQ-EW-E3i"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="checkButton" destination="oav-bV-aqV" id="kYd-LX-RDh"/>
                                             <outlet property="checkImg" destination="HXQ-xF-e0U" id="6Ke-ns-ME6"/>
                                             <outlet property="taskDetailsLbl" destination="2NU-J2-wyw" id="biy-ZY-2yO"/>
                                             <outlet property="taskName" destination="fcw-ap-idN" id="9Th-yx-Msq"/>
@@ -1063,9 +1071,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEo-p9-s7A" userLabel="JobName">
-                                        <rect key="frame" x="25" y="50" width="103.99999999999997" height="21"/>
+                                        <rect key="frame" x="25" y="50" width="77.999999999999972" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="104" id="e7H-OJ-VEt"/>
                                             <constraint firstAttribute="height" constant="21" id="vko-yM-ffp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1129,8 +1136,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exp multiplier: 1.22x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-EM-vQG" userLabel="ExpMultiplier">
-                                <rect key="frame" x="131.33333333333331" y="394" width="151.99999999999994" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Acummulated Exp: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-EM-vQG" userLabel="TotalExp">
+                                <rect key="frame" x="107.66666666666666" y="394" width="199.33333333333334" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1138,13 +1145,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcm-6Y-O3T" userLabel="Placeholder 2">
                                 <rect key="frame" x="465" y="82.666666666666686" width="251" height="170"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime Tasks Completed: 49" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-oV-fvt" userLabel="LifetimeTasksCompleted2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime Tasks Completed: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-oV-fvt" userLabel="LifetimeTasksCompleted2">
                                         <rect key="frame" x="8" y="49.999999999999986" width="251" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Task Count: 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-fU-b1z" userLabel="CurrentTaskCount">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Task Count: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-fU-b1z" userLabel="CurrentTaskCount">
                                         <rect key="frame" x="8" y="78.999999999999986" width="251" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1337,7 +1344,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ExpLbl" destination="zhH-x4-kno" id="wZJ-jZ-U1V"/>
-                        <outlet property="ExpMultiplierLbl" destination="iEz-EM-vQG" id="z7v-k8-yyK"/>
                         <outlet property="ExpPgb" destination="45i-we-CCa" id="XKK-n4-uEL"/>
                         <outlet property="GoldLbl" destination="7kY-KP-3lX" id="zse-XK-9HC"/>
                         <outlet property="HeroLbl" destination="fMJ-Fj-G8D" id="v2e-N8-VBT"/>
@@ -1346,12 +1352,13 @@
                         <outlet property="LifetimeLbl2" destination="rM9-oV-fvt" id="3Jf-Ur-VYj"/>
                         <outlet property="LvlLbl" destination="xXT-Kd-g9d" id="fxR-Cq-gOP"/>
                         <outlet property="TaskCountLbl" destination="3lM-fU-b1z" id="kfv-US-XkN"/>
+                        <outlet property="TotalExpLbl" destination="iEz-EM-vQG" id="Bkp-P7-yEj"/>
                         <outlet property="profilePicture" destination="vlB-vW-b8V" id="4mo-fT-2q9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rz4-ce-ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532.608695652174" y="1579.7101449275362"/>
+            <point key="canvasLocation" x="1531.8840579710145" y="1579.0760869565217"/>
         </scene>
         <!--Rewards-->
         <scene sceneID="p1s-tj-l90">
@@ -1408,7 +1415,7 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oU-Dm-qZq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWH-EE-2r0">
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWH-EE-2r0">
                                                                 <rect key="frame" x="0.0" y="0.6666666666666643" width="70" height="70"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

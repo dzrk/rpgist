@@ -14,12 +14,6 @@ class TaskDetailsController: UIViewController {
     @IBOutlet weak var placeholder3: UIView!
     @IBOutlet weak var placeholder4: UIView!
     
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     @IBOutlet weak var title1: UILabel!
     @IBOutlet weak var description1: UILabel!
     @IBOutlet weak var title2: UILabel!
@@ -51,37 +45,17 @@ class TaskDetailsController: UIViewController {
         view.tintColor = Model.get.textColours[indexChosen.mainColour]
         goldInfoAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
         
-        goldInfoAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction) in
-            //do something
-        }))
+        goldInfoAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(goldInfoAlert, animated: true, completion: nil)
     }
     
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         expBtn.accessibilityIdentifier = "expBtn"
         goldBtn.accessibilityIdentifier = "goldBtn"
         notesBtn.accessibilityIdentifier = "notesBtn"
         dueBtn.accessibilityIdentifier = "dueBtn"
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         placeholder1.layer.cornerRadius = 25
         placeholder2.layer.cornerRadius = 25
@@ -91,12 +65,6 @@ class TaskDetailsController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         self.placeholder1.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.placeholder2.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
@@ -123,12 +91,6 @@ class TaskDetailsController: UIViewController {
         
         self.dueImg.image = self.dueImg.image!.withRenderingMode(.alwaysTemplate)
         self.dueImg.tintColor = Model.get.secondaryColours[indexChosen.mainColour]
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
 }
 

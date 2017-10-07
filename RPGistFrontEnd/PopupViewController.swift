@@ -16,35 +16,16 @@ class PopupViewController: UIViewController{
         dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var popupView: UIView!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var notes: UITextView!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
@@ -56,11 +37,5 @@ class PopupViewController: UIViewController{
         self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
         
         self.notes.accessibilityIdentifier = "notes"
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
 }

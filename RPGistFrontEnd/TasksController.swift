@@ -14,19 +14,16 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     let personalList: [String] = ["Salad for dinner", "Haircut", "Go to the gym"]
     let shoppingList: [String] = ["Eggs", "Milk", "Bread"]
     
-    //let cellReuseIdentifier = "cell" !!!!!
     let cellChosen = varPassed.catToTask
     var chosenList: [String] = []
-    
+    var arr: [String] = ["one", "two"] //just for testing
     
     // don't forget to hook this up from the storyboard
     @IBOutlet var taskView: UITableView!
+    @IBOutlet weak var addBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Register the table view cell class and its reuse id
-        //self.taskView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier) !!!!!!!!!!!!!!
         
         // This view controller itself will provide the delegate methods and row data for the table view.
         taskView.delegate = self
@@ -45,63 +42,18 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
             print("NOPE")
         }
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         taskView.accessibilityIdentifier = "TasksTable"
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
-    @IBOutlet weak var addBtn: UIButton!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     override func viewWillAppear(_ animated: Bool) {
         self.taskView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
         self.taskView.reloadData()
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
     
     @IBAction func addTask(sender: AnyObject) {
         let taskAlert = UIAlertController(title: "New task", message: "Enter your task name", preferredStyle: .alert)
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         taskAlert.setValue(NSAttributedString(string: "New Task", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
         taskAlert.setValue(NSAttributedString(string: "Enter your task name", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
@@ -113,15 +65,10 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
         view.tintColor = Model.get.textColours[indexChosen.mainColour]
         taskAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         taskAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "New task name"
         }
+        
         taskAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
 //            if let taskContent = taskAlert.textFields?.first?.text {
 //                let task = String(taskContent)
@@ -132,19 +79,9 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //                catRef.setValue(self.cellChosen)
 //            }
         }))
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        taskAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
-            //do something
-        }))
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
+        
+        taskAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
         self.present(taskAlert, animated: true, completion: nil)
     }
     
@@ -167,7 +104,7 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
             case 0:
                 return self.chosenList.count
             case 1:
-                return 2 //change this number
+                return self.arr.count //just for testing
             default:
                 return 0
         }
@@ -186,12 +123,6 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // create a cell for each table view row
     func tableView(_ taskView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         // create a new cell if needed or reuse an old one
         let cell = self.taskView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TasksViewCellController
         
@@ -200,44 +131,144 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 // set the text from the data model
                 cell.taskName.text = self.chosenList[indexPath.row]
                 cell.taskName.textColor = Model.get.textColours[indexChosen.mainColour]
-                cell.taskDetailsLbl.text = "1 exp, 1 g"
+                cell.taskDetailsLbl.text = "1 exp, 1 g" //don't forget to change this one to the real number of exp & gold
                 cell.taskDetailsLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-                cell.checkImg.image = UIImage(named: "first")?.withRenderingMode(.alwaysTemplate)
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
+                cell.checkImg.image = UIImage(named: "checkboxUnchecked")?.withRenderingMode(.alwaysTemplate)
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
                 cell.checkImg.tintColor = Model.get.secondaryColours[indexChosen.mainColour]
                 cell.accessibilityIdentifier = "TasksCell_\(indexPath.row)"
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
+                //I made the buttons go to 2 separate functions
+                //This one will go to buttonClicked, where now it's just showing an alert, but u can change it with your code to calculate and store the exp & gold
+                cell.checkButton.tag = indexPath.row
+                cell.checkButton.addTarget(self, action: #selector(buttonClicked(sender:)), for: UIControlEvents.touchUpInside)
+            
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
             case 1:
                 // set the text from the data model
-                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "Completed Task " + String(indexPath.row + 1))
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: arr[indexPath.row])
                 attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
                 cell.taskName.attributedText = attributeString
                 cell.taskName.textColor = Model.get.textColours[indexChosen.mainColour].withAlphaComponent(0.3)
-                cell.taskDetailsLbl.text = "0 exp, 0 g"
+                cell.taskDetailsLbl.text = "0 exp, 0 g" //don't forget to change this one to the real number of exp & gold
                 cell.taskDetailsLbl.textColor = Model.get.textColours[indexChosen.mainColour].withAlphaComponent(0.3)
-                cell.checkImg.image = UIImage(named: "second")?.withRenderingMode(.alwaysTemplate)
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
+                cell.checkImg.image = UIImage(named: "checkboxChecked")?.withRenderingMode(.alwaysTemplate)
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
                 cell.checkImg.tintColor = Model.get.secondaryColours[indexChosen.mainColour]
                 cell.accessibilityIdentifier = "CompletedTasksCell_\(indexPath.row)"
+                
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                
+                //I made the buttons go to 2 separate functions
+                //This one will go to completedClicked, where it will show an alert telling the user that they have completed this task and they cannot undo it
+                cell.checkButton.tag = indexPath.row
+                cell.checkButton.addTarget(self, action: #selector(completedClicked(sender:)), for: UIControlEvents.touchUpInside)
+            
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
+                //*********************************************************//
             default:
                 cell.taskName.text = "Error!"
         }
         
-        //cell.backgroundColor = UIColor(red: 0.388, green:0.388, blue: 0.388, alpha:1.0)
         cell.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         let backgroundView = UIView()
-        //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
         backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
-        //#85C7F2 baby blue
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         cell.selectedBackgroundView = backgroundView
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         return cell
     }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    //This is where the button's methods are
+    
+    func buttonClicked(sender: UIButton) {
+        let alert = UIAlertController(title: "Done", message: "Yay you finished task number \(sender.tag + 1)!", preferredStyle: .alert)
+        
+        alert.setValue(NSAttributedString(string: "Done", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        alert.setValue(NSAttributedString(string: "Yay you finished task number \(sender.tag + 1)!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = alert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        alert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func completedClicked(sender: UIButton) {
+        let alert = UIAlertController(title: "Finished", message: "You have already finished task number \(sender.tag + 1). You cannot undo this action.", preferredStyle: .alert)
+        
+        alert.setValue(NSAttributedString(string: "Finished", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        alert.setValue(NSAttributedString(string: "You have already finished task number \(sender.tag + 1). You cannot undo this action.", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = alert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        alert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
     
     // method to run when table view cell is tapped
     func tableView(_ taskView: UITableView, didSelectRowAt indexPath: IndexPath) {

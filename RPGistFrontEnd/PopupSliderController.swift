@@ -27,23 +27,11 @@ class PopupSliderController: UIViewController
     @IBOutlet weak var importance: UILabel!
     @IBOutlet weak var totalExp: UILabel!
     
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var difficultyLbl: UILabel!
     @IBOutlet weak var imporatanceLbl: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     @IBAction func sliderDiffValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
@@ -72,13 +60,6 @@ class PopupSliderController: UIViewController
         popupSlider.layer.cornerRadius = 10
         popupSlider.layer.masksToBounds = true
         
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         self.popupSlider.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.difficultyLbl.textColor = Model.get.textColours[indexChosen.mainColour]
@@ -98,14 +79,7 @@ class PopupSliderController: UIViewController
         self.sliderDiff.accessibilityIdentifier = "sliderDiff"
         self.sliderImp.accessibilityIdentifier = "sliderImp"
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         calcTotalExp()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
 }

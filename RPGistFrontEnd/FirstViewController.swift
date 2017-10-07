@@ -19,20 +19,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let categoryList: [String] = ["School", "Work", "Personal", "Shopping"]
     var test: String?
     
-    // cell reuse id (cells that scroll out of view can be reused)
-    //let cellReuseIdentifier = "cell" !!!!!!!!!!!!!!!!
-    
     // don't forget to hook this up from the storyboard
     @IBOutlet var tableView: UITableView!
     
     @IBAction func addCategory(sender: AnyObject) {
         let catAlert = UIAlertController(title: "New category", message: "Enter your category", preferredStyle: .alert)
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
         
         catAlert.setValue(NSAttributedString(string: "New Category", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
         catAlert.setValue(NSAttributedString(string: "Enter your category", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
@@ -44,15 +35,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         view.tintColor = Model.get.textColours[indexChosen.mainColour]
         catAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         catAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "New category name"
         }
+        
         catAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
 //            if let catContent = catAlert.textFields?.first?.text {
 //                let cat = String(catContent)
@@ -63,77 +49,30 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //                
 //            }
         }))
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
+        
         catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
+        
         self.present(catAlert, animated: true, completion: nil)
     }
     
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    
     @IBOutlet weak var addBtn: UIButton!
-    
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
-    //*********************************************************//
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
         self.tableView.reloadData()
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register the table view cell class and its reuse id
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier) !!!!!!!!!!!!!!!!!!!!!
-        
         // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
         
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         tableView.accessibilityIdentifier = "FirstViewTable"
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
     }
     
     //swipe to remove
@@ -150,12 +89,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         // create a new cell if needed or reuse an old one
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "FirstViewCell") as! FirstViewCellController
         
@@ -172,29 +105,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.taskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         
         cell.accessibilityIdentifier = "FirstViewCell_\(indexPath.row)"
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         cell.selectedBackgroundView = backgroundView
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        
-        /*
-         let cellLabel = UILabel()
-         cellLabel.textAlignment = .right
-         cellLabel.text = "Hi!"
-         cellLabel.translatesAutoresizingMaskIntoConstraints = false
-         
-         cellLabel.widthAnchor.constraint(equalToConstant: 30).isActive = true
-         cellLabel.heightAnchor.constraint(equalToConstant: cell.frame.height).isActive = true
-         view.addConstraint(NSLayoutConstraint(item: cellLabel, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 0.9, constant: 0))
-         cellLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-         
-         cell.addSubview(cellLabel)
-         */
         
         return cell
     }
