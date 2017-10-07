@@ -83,6 +83,23 @@ File Changes:
 - Added CompletedTasksViewController
 - Modified some files
 
+
+
+---
+### 7 October
+---
+File Changes:
+- Modified TasksController
+- Modified HeroViewController
+- Modified RewardsTableViewController
+- Modified Model
+- Removed "first", "second" and previous random avatars from asset
+- Added new avatars and checkboxes to asset
+
+#### Notes:
+If you copy my storyboard and find some stuffs not working on it, check the outlets again cause we have some different outlet names which I can't remember, sorry for the inconvenience.
+
+
 ---
 ### Themes
 ---
@@ -99,3 +116,5 @@ File Changes:
 - http://www.freepik.com
 - https://www.flaticon.com/
 - http://creativecommons.org/licenses/by/3.0/
+- https://icons8.com/icon/19336/Unchecked-Checkbox
+- https://icons8.com/icon/11697/Tick-Box
