@@ -241,10 +241,10 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // method to run when table view cell is tapped
     func tableView(_ taskView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = taskView.cellForRow(at: indexPath)
+        let cell = taskView.cellForRow(at: indexPath) as! TasksViewCellController
         taskView.deselectRow(at: indexPath, animated:true)
         
-        let data = (cell?.textLabel?.text)
+        let data = (cell.taskName.text)
         varPassed.taskToInfo = data!
         
         performSegue(withIdentifier: "TasksToCustom", sender: cell)

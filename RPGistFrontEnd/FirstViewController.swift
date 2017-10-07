@@ -68,9 +68,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //*********************************************************//
         //*********************************************************//
         //*********************************************************//
-        catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
-            //do something
-        }))
+        catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         //*********************************************************//
         //*********************************************************//
         //*********************************************************//
