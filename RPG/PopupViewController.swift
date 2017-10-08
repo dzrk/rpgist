@@ -32,15 +32,7 @@ class PopupViewController: UIViewController{
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
-        
-        self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
-        self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.textViewDesc.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
-        self.textViewDesc.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.textViewDesc.layer.cornerRadius = 10
-        self.textViewDesc.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15)
-        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
-        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+    
         
         self.textViewDesc.accessibilityIdentifier = "notes"
 
@@ -55,5 +47,16 @@ class PopupViewController: UIViewController{
             }
             
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.textViewDesc.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.textViewDesc.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.textViewDesc.layer.cornerRadius = 10
+        self.textViewDesc.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15)
+        self.saveBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
+    }
+
 
 }

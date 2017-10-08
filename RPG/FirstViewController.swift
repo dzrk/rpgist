@@ -1,6 +1,5 @@
 import UIKit
 import FirebaseDatabase
-
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // cell reuse id (cells that scroll out of view can be reused)
 //    let cellReuseIdentifier = "cell"
@@ -8,10 +7,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // don't forget to hook this up from the storyboard
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var addBtn: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("TESTTTT\(User)")
         dbRef = Database.database().reference().child(varPassed.uid)
         startObservingDB()
         // Register the table view cell class and its reuse id
@@ -24,17 +22,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        startObservingDB()
         self.tableView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)
         self.tableView.reloadData()
         
     }
+
     func startObservingDB (){
         //        let userID = Auth.auth().currentUser?.uid
         
-        dbRef.child("category").observe(.value, with: { (snapshot:DataSnapshot) in
+        dbRef.child("category").observe(DataEventType.value, with: { (snapshot:DataSnapshot) in
             var newCats = [String]()
             
             for item in snapshot.children {
@@ -47,7 +46,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { (error) in
             print(error.localizedDescription)
         }
+
+
+        
     }
+
     
     @IBAction func addCategory(sender: AnyObject) {
         let catAlert = UIAlertController(title: "New category", message: "Enter your category", preferredStyle: .alert)
@@ -69,20 +72,44 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         catAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action:UIAlertAction) in
             if let catContent = catAlert.textFields?.first?.text {
-                let cat = String(catContent)
-                
+                let catString = String(catContent)
+                var found = false
                 let catRef = self.dbRef.child("category").child(catContent)
-                
-                catRef.setValue(cat)
-                
+                for cats in cat{
+                    if cats.caseInsensitiveCompare(catString!) == .orderedSame{
+                        found = true
+                    }
+                }
+                if found == false {
+                    catRef.setValue(catString)
+                }else{
+                    self.unsuccessfulInput()
+                }
+            
             }
         }))
         catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
         self.present(catAlert, animated: true, completion: nil)
         
         
     }
+    
+    func unsuccessfulInput() {
+        let validationAlert = UIAlertController(title: "Not Allowed", message: "You already have this category name!", preferredStyle: .alert)
+        validationAlert.setValue(NSAttributedString(string: "Not Allowed", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        validationAlert.setValue(NSAttributedString(string: "You already have this category name!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = validationAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        validationAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        validationAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(validationAlert, animated: true, completion: nil)
+    }
+    
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cat.count
@@ -92,15 +119,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "FirstViewCell") as! FirstViewCellController
-
         let name = cat[indexPath.row]
         // set the text from the data model
+
+        
         cell.textLabel?.text = String(name)
         cell.textLabel?.textColor = Model.get.textColours[indexChosen.mainColour]
         cell.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         let backgroundView = UIView()
         backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
-        cell.taskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+
+        
         cell.accessibilityIdentifier = "FirstViewCell_\(indexPath.row)"
 
         cell.selectedBackgroundView = backgroundView
@@ -116,7 +145,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         let data = (cell?.textLabel?.text)
         varPassed.catToTask = data!
-
+        
         performSegue(withIdentifier: "FirstViewToTaskCont", sender: cell)
         
     }

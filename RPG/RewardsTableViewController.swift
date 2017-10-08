@@ -41,6 +41,7 @@ class RewardsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        self.gold.title = String(varPassed.totalGold) + " g"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,7 +139,8 @@ extension RewardsTableViewController: UICollectionViewDataSource {
             if (Model.get.profilePictureFlags[indexPath.row]) {
                 cell.locked.isHidden = true
             } else {
-                cell.locked.text = String(Model.get.profilePicturePrices[indexPath.row]) + " g"
+                cell.locked.text = "Level \(String(Model.get.profilePictureLevelReqs[indexPath.row] + 1))\n\n\(String(Model.get.profilePicturePrices[indexPath.row])) g"
+
             }
         default:
             cell.backgroundColor = cell.backgroundColor
@@ -197,16 +199,75 @@ extension RewardsTableViewController: UICollectionViewDelegate {
         }
         
         if (locked) {
-            let alert = UIAlertController(title: "Unlock", message: "This item is locked!\nSpend " + String(price) + " g to unlock?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
-                // Do something
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action:UIAlertAction) in
-                // Do something
-            }))
+            //Believe it or not, the whole code in this wall of comments is for an alert
+            
+            var canUnlock: Bool = false //This is a variable to show that the user has the requirements to unlock, it's only used to determine the button(s) that will show up on the alert
+            var msg = "This item is locked!\n"
+            if (collectionView.tag == 2 && varPassed.currLvl < Model.get.profilePictureLevelReqs[indexPath.row]) {
+                msg += "You need to at least be at level \(Model.get.profilePictureLevelReqs[indexPath.row] + 1) and have \(price) g to unlock."
+            } else if (varPassed.totalGold < price) {
+                msg += "You need to at least have \(price) g to unlock."
+            } else {
+                msg += "Spend \(price) g to unlock?"
+                canUnlock = true
+            }
+            
+            let alert = UIAlertController(title: "Unlock", message: msg, preferredStyle: .alert)
+            alert.setValue(NSAttributedString(string: "Unlock", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+            alert.setValue(NSAttributedString(string: msg, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+            
+            let subview1 = alert.view.subviews.first! as UIView
+            let subview2 = subview1.subviews.first! as UIView
+            let view = subview2.subviews.first! as UIView
+            view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+            view.tintColor = Model.get.textColours[indexChosen.mainColour]
+            alert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+            
+            //And this is where that variable is used
+            if (canUnlock) {
+                //Two buttons (Yes and No) if they can unlock it
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
+                    varPassed.totalGold -= price
+                    self.gold.title = String(varPassed.totalGold)
+                    
+                    switch collectionView.tag {
+                    case 0:
+                        Model.get.mainColourFlags[indexPath.row] = true
+                    case 1:
+                        Model.get.secondaryColourFlags[indexPath.row] = true
+                    case 2:
+                        Model.get.profilePictureFlags[indexPath.row] = true
+                    default:
+                        print("Error")
+                    }
+                    
+                    self.tableView.reloadData()
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel))
+            } else {
+                //And one button (OK) if they don't meet the requirement(s)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            }
+
             self.present(alert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Confirmation", message: "Change current " + name + "?", preferredStyle: .alert)
+            
+            //This is for the theme, don't worry about it too much
+            
+            alert.setValue(NSAttributedString(string: "Confirmation", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+            alert.setValue(NSAttributedString(string: "Change current " + name + "?", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+            
+            let subview1 = alert.view.subviews.first! as UIView
+            let subview2 = subview1.subviews.first! as UIView
+            let view = subview2.subviews.first! as UIView
+            view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+            view.tintColor = Model.get.textColours[indexChosen.mainColour]
+            alert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+
+            
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action:UIAlertAction) in
                 // Do something
             }))
@@ -233,7 +294,11 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                     indexChosen.secondaryColour = indexPath.row
                     
                 case "Profile Picture":
-                    indexChosen.profilePicture = indexPath.row
+                    //I used to save the index of the profile picture, but I think it's better to actually save the name of the picture itself
+                    //So this is also gonna be where u will be saving the picture to the database
+                    
+                    indexChosen.profilePicture = Model.get.profilePictures[indexPath.row]
+                    
 
                     
                 default:

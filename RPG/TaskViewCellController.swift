@@ -12,4 +12,7 @@ class TasksViewCellController: UITableViewCell {
     @IBOutlet weak var taskDetailsLbl: UILabel!
     @IBOutlet weak var checkImg: UIImageView!
     @IBOutlet weak var taskName: UILabel!
+    @IBOutlet weak var checkButton: UIButton!
+    
+    
 }

@@ -9,5 +9,4 @@
 import UIKit
 
 class FirstViewCellController: UITableViewCell {
-    @IBOutlet weak var taskCountLbl: UILabel!
 }

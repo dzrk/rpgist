@@ -10,13 +10,19 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+public var comps = [Task]()
 public var tasks = [Task]()
 public var cat = [String]()
+public var lifeComps = [Task]()
+
 struct varPassed {
     static var catToTask = ""
     static var taskToInfo = ""
     static var popupPassed = ""
     static var uid = ""
+    static var totalExp = 0
+    static var totalGold = 0
+    static var currLvl = 0
 }
 
 class HeroViewController: UIViewController {
@@ -30,6 +36,8 @@ class HeroViewController: UIViewController {
     var currLvl:Int = 0
     var currGold:Int = 0
     var dbRef:DatabaseReference!
+    //I made a new variable
+    var totalExp: Int = 0
 
     @IBOutlet weak var loginlogout: UIBarButtonItem!
     @IBOutlet weak var HeroLbl: UILabel!
@@ -44,7 +52,9 @@ class HeroViewController: UIViewController {
     @IBOutlet weak var LifetimeLbl: UILabel!
     @IBOutlet weak var LifetimeLbl2: UILabel!
     @IBOutlet weak var TaskCountLbl: UILabel!
-    
+    //Change the exp multiplier label to total exp
+    @IBOutlet weak var TotalExpLbl: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,23 +68,24 @@ class HeroViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
-        self.profilePicture.image = UIImage(named: Model.get.profilePictures[indexChosen.profilePicture])
+        self.profilePicture.image = UIImage(named: indexChosen.profilePicture)
         self.HeroLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.ExpLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.LvlLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.GoldLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.JobLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.ExpMultiplierLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.LifetimeLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.LifetimeLbl2.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.TaskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.ExpPgb.trackTintColor = Model.get.extraColours2[indexChosen.mainColour]
-        self.ExpPgb.progressTintColor = Model.get.extraColours1[indexChosen.mainColour]
         
         //This is to initialize theme colour, only exists in this class because this is the first controller called
         //Cannot be put on AppDelegate somehow (it seems that the appearance() funtion in the UITabBar works in a different way than the one in UINavigationBar)
         self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexChosen.secondaryColour]
         self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[indexChosen.secondaryColour]
+        
+        self.TotalExpLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.LifetimeLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.LifetimeLbl2.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.TaskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
+        self.ExpPgb.trackTintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.ExpPgb.progressTintColor = Model.get.extraColours2[indexChosen.mainColour]
 
         Auth.auth().addStateDidChangeListener({ (auth, user) in
             if let user = user {
@@ -127,20 +138,19 @@ class HeroViewController: UIViewController {
             let name = value?["heroName"] as? String ?? ""
             let exp = value?["totalExp"] as? Int ?? 0
             let gold = value?["totalGold"] as? Int ?? 0
-
-            self.currExp = exp
+            varPassed.totalExp = exp
+            varPassed.totalGold = gold
             self.currGold = gold
-            
+            self.totalExp = exp
             self.calcLevel()
             self.calcXP()
             
             self.HeroLbl.text? = name
             self.ExpLbl.text? = String(exp) + " exp / " + String(format: "%.0f", pow(Double((self.currLvl + 1) * 4), 2)) + self.EXP
             self.GoldLbl.text? = String(gold) + self.GOLD
-//            print("Welcome \(self.currentUser.email)")
-//            print(self.currentUser.uid)
+
             self.generateJobName()
-            self.avatarEvolution()
+            self.TotalExpLbl.text? = "Total Accumulated Exp: \(self.totalExp)"
 
             
             
@@ -150,23 +160,63 @@ class HeroViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
                 
             }))
-
+            
         }
+        
+        dbRef.child("task").observe(DataEventType.value, with: { (snapshot) in
+            var compTasks = [Task]()
+            var incompTasks = [Task]()
+            for item in snapshot.children {
+                let taskObject = Task(snapshot: item as! DataSnapshot)
+                if taskObject.comp == true{
+                        compTasks.append(taskObject)
+                }else{
+                        incompTasks.append(taskObject)
+                }
+            }
+            lifeComps = compTasks
+            tasks = incompTasks
+            let lifeCount = lifeComps.count
+            self.LifetimeLbl.text = "Lifetime completed tasks: \(String(lifeCount))"
+            self.LifetimeLbl2.text = "Lifetime completed tasks: \(String(lifeCount))"
+            
+        }){ (error) in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            self.present(alert, animated:true, completion:nil)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                
+            }))
+        }
+ 
     }
     
     func calcLevel (){
-        let level = sqrt(Double(self.currExp)) * 0.25
+        let level = sqrt(Double(self.totalExp)) * 0.25
         self.LvlLbl.text? = self.LVL + String(format: "%.0f", floor(level))
         self.currLvl = Int(floor(level))
+        varPassed.currLvl = self.currLvl
+
         
     }
     
     func calcXP() {
-        let min = pow(Double(currLvl * 4), 2)
+        //Now I need to calculate the exp level that the user has in that level
+        
+        let min = pow(Double(currLvl * 4), 2) //This function stays but it's for a different purpose now
+        self.currExp = self.totalExp - Int(min) //And that's how we got the user's current exp
+        
         let max = pow(Double((currLvl + 1) * 4), 2)
-        let progress:Double = (Double(currExp) - min) / (max - min)
+        
+        //Change this:
+        //        let progress:Double = (Double(currExp) - min) / (max - min)
+        //To this:
+        let progress:Double = Double(currExp) / (max - min)
         
         self.ExpPgb.setProgress(Float(progress), animated: false)
+        
+        //I'll also be setting the label under the progress bar here to make things simpler
+        self.ExpLbl.text? = String(self.currExp) + self.EXP + " / " + String(format: "%.0f", (max - min)) + self.EXP
+
     }
     
     func signin(){
@@ -251,33 +301,30 @@ class HeroViewController: UIViewController {
         self.present(heroAlert, animated: true, completion: nil)
     }
     func generateJobName() {
+        var jobTitle:String
+        
         if (self.currLvl < 6) {
-            self.JobLbl.text? = "Novice"
+            jobTitle = "Novice"
         } else if (self.currLvl < 11) {
-            self.JobLbl.text? = "Apprentice"
+            jobTitle = "Apprentice"
         } else if (self.currLvl < 21) {
-            self.JobLbl.text? = "Adept"
+            jobTitle = "Adept"
         } else if (self.currLvl < 36) {
-            self.JobLbl.text? = "Master"
-        } else if (self.currLvl < 50) {
-            self.JobLbl.text? = "Grandmaster"
+            jobTitle = "Master"
+        } else if (self.currLvl < 51) {
+            jobTitle = "Grandmaster"
         } else {
-            self.JobLbl.text? = "Legendary"
+            jobTitle = "Legendary"
         }
+        
+        //I'm trying to add the name of the animal in the profile picture to the end of the job title
+        let pictureName = indexChosen.profilePicture //just getting the picture name
+        let strLength = pictureName.characters.count //getting the length of the picture name string so that it can be reduced by 1 to just get the name of the animal without the evolution number
+        let index = pictureName.index(pictureName.startIndex, offsetBy: strLength - 1) //setting the index to be used for the substring
+        
+        jobTitle += " \(pictureName.substring(to: index))" //adding the animal name to the end of the job title
+        self.JobLbl.text = jobTitle //setting the job title label
     }
     
-    func avatarEvolution() {
-        let currentPic = Model.get.profilePictures[indexChosen.profilePicture]
-        
-        if (self.currLvl < 4) {
-            self.profilePicture.image = UIImage(named: currentPic)
-        } else if (self.currLvl < 21) {
-            self.profilePicture.image = UIImage(named: currentPic + "_1")
-        } else if (self.currLvl < 36) {
-            self.profilePicture.image = UIImage(named: currentPic + "_2")
-        } else {
-            self.profilePicture.image = UIImage(named: currentPic + "_3")
-        }
-    }
 
 }

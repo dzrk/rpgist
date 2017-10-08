@@ -17,15 +17,18 @@ public struct Task {
     let exp:Int!
     let name:String!
     let cat:String!
+    let comp:Bool!
+    
     let itemRef:DatabaseReference?
 
-    init (due:String, gold:Int, exp:Int, name:String, key:String = "", cat:String) {
+    init (due:String, gold:Int, exp:Int, name:String, key:String = "", cat:String, comp:Bool) {
         self.key = key
         self.due = due
         self.gold = gold
         self.exp = exp
         self.name = name
         self.cat = cat
+        self.comp = comp
         self.itemRef = nil
     }
 
@@ -57,6 +60,11 @@ public struct Task {
             cat = dict
         }else {
             cat = ""
+        }
+        if let snap = snapshot.value as? NSDictionary, let dict = snap["completed"] as? Bool {
+            comp = dict
+        }else {
+            comp = false
         }
     }
     

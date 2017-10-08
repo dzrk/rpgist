@@ -12,7 +12,7 @@ import UIKit
 struct indexChosen {
     static var mainColour = 0
     static var secondaryColour = 0
-    static var profilePicture = 0
+    static var profilePicture = "Birb1"
 }
 
 class Model
@@ -72,7 +72,7 @@ class Model
                          UIColor(red:0.11, green:0.83, blue:0.69, alpha:1.0),
                          UIColor(red:0.57, green:0.75, blue:0.69, alpha:1.0)] //lighter than extraColours1
     
-    var profilePictures = ["Pic1", "Pic2", "Pic3", "Pic4", "Pic5", "Pic6", "Pic7", "Pic8", "Pic9", "Pic10", "Pic11", "Pic12", "Pic13", "Pic14", "Pic15", "Pic16"]
+    var profilePictures = ["Birb1", "Birb2", "Birb3", "Cat1", "Cat2", "Cat3", "Goldfish1", "Goldfish2", "Goldfish3"]
     
     var mainColourFlags = [true, true, true, true, true, true, true, true, true]
     var secondaryColourFlags = [true, true, true, true, true, true, true, true, true]
@@ -80,6 +80,7 @@ class Model
     
     var mainColourPrices = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     var secondaryColourPrices = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    var profilePicturePrices = [15, 15, 15, 15, 30, 30, 30, 30, 45, 45, 45, 45, 60, 60, 60, 60]
-
+    var profilePicturePrices = [15, 30, 45, 15, 30, 45, 15, 30, 45]
+    var profilePictureLevelReqs = [0, 20, 50, 0, 20, 50, 0, 20, 50]
+    
 }
