@@ -10,8 +10,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbRef = Database.database().reference().child(varPassed.uid)
-        startObservingDB()
+        if varPassed.uid != ""{
+            dbRef = Database.database().reference().child(varPassed.uid)
+            startObservingDB()
+        }else{
+            let alert = UIAlertController(title: "Error", message: "You need to login first", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                self.navigationController?.popToRootViewController(animated: false)
+            }))
+            self.present(alert, animated:true, completion:nil)
+
+
+
+        }
         // Register the table view cell class and its reuse id
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
@@ -22,7 +33,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        startObservingDB()
         self.tableView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.addBtn.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.addBtn.setTitleColor(Model.get.textColours[indexChosen.mainColour], for: .normal)

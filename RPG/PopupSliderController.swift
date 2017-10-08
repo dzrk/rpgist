@@ -28,6 +28,16 @@ class PopupSliderController: UIViewController
         dbRef.child("task").child(varPassed.taskToInfo).child("gold").setValue(self.gold)
         let savedAlert = UIAlertController(title: "Saved exp!", message: "Gold has been updated!", preferredStyle: .alert)
         
+        savedAlert.setValue(NSAttributedString(string: "Saved exp!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        savedAlert.setValue(NSAttributedString(string: "Gold has been updated!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = savedAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        savedAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
         savedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
             
         }))

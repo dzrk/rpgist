@@ -74,9 +74,9 @@ class Model
     
     var profilePictures = ["Birb1", "Birb2", "Birb3", "Cat1", "Cat2", "Cat3", "Goldfish1", "Goldfish2", "Goldfish3"]
     
-    var mainColourFlags = [true, true, true, true, true, true, true, true, true]
-    var secondaryColourFlags = [true, true, true, true, true, true, true, true, true]
-    var profilePictureFlags = [true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+    var mainColourFlags = [true, false, false, false, false, false, false, false, false]
+    var secondaryColourFlags = [true, false, false, false, false, false, false, false, false]
+    var profilePictureFlags = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     var mainColourPrices = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     var secondaryColourPrices = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]

@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
 
-        UINavigationBar.appearance().barTintColor = Model.get.secondaryColours[indexChosen.secondaryColour]
-        UINavigationBar.appearance().tintColor = Model.get.extraColours1[indexChosen.secondaryColour]
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : Model.get.extraColours1[indexChosen.secondaryColour]]
-
+    
         
         return true
     }

@@ -6,11 +6,12 @@
 //  Copyright © 2017 Priscilla Jofani Oetomo. All rights reserved.
 //
 import UIKit
+import FirebaseDatabase
 
 class RewardsTableViewController: UITableViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var gold: UIBarButtonItem!
-    
+    var dbRef: DatabaseReference!
     @IBAction func storeBtnPressed(sender: AnyObject) {
         let storeAlert = UIAlertController(title: "Store", message: "Store coming soon!", preferredStyle: .alert)
         storeAlert.setValue(NSAttributedString(string: "Store", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
@@ -34,7 +35,7 @@ class RewardsTableViewController: UITableViewController {
         tblView.dataSource = self
         tblView.delegate = self
         tblView.tableFooterView = UIView()
-        
+        dbRef = Database.database().reference().child(varPassed.uid)
         gold.title = String(HeroViewController.get.currGold) + " g"
         tblView.accessibilityIdentifier = "RewardsTable"
     }
@@ -229,15 +230,20 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                 
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
                     varPassed.totalGold -= price
-                    self.gold.title = String(varPassed.totalGold)
-                    
+                    self.gold.title = String(varPassed.totalGold) + " g"
+                    self.dbRef.child("totalGold").setValue(varPassed.totalGold)
                     switch collectionView.tag {
                     case 0:
                         Model.get.mainColourFlags[indexPath.row] = true
+                        self.dbRef.child("reward").child("main").child(String(indexPath.row)).setValue(true)
                     case 1:
                         Model.get.secondaryColourFlags[indexPath.row] = true
+                        self.dbRef.child("reward").child("secondary").child(String(indexPath.row)).setValue(true)
+
                     case 2:
                         Model.get.profilePictureFlags[indexPath.row] = true
+                        self.dbRef.child("reward").child("pic").child(String(indexPath.row)).setValue(true)
+
                     default:
                         print("Error")
                     }
@@ -277,6 +283,7 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                     self.view?.backgroundColor = Model.get.mainColours[indexPath.row]
                     
                     indexChosen.mainColour = indexPath.row
+                    self.dbRef.child("setting").child("main").setValue(String(indexPath.row))
 
                     
                 case "Secondary Theme Colour":
@@ -290,7 +297,8 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                     
                     self.tabBarController?.tabBar.barTintColor = Model.get.secondaryColours[indexPath.row]
                     self.tabBarController?.tabBar.tintColor = Model.get.extraColours1[indexPath.row]
-                    
+                    self.dbRef.child("setting").child("secondary").setValue(String(indexPath.row))
+
                     indexChosen.secondaryColour = indexPath.row
                     
                 case "Profile Picture":
@@ -298,7 +306,8 @@ extension RewardsTableViewController: UICollectionViewDelegate {
                     //So this is also gonna be where u will be saving the picture to the database
                     
                     indexChosen.profilePicture = Model.get.profilePictures[indexPath.row]
-                    
+                    self.dbRef.child("setting").child("pic").setValue(Model.get.profilePictures[indexPath.row])
+
 
                     
                 default:
