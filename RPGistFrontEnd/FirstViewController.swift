@@ -48,12 +48,84 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //                catRef.setValue(cat)
 //                
 //            }
+            
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            
+            //Checking if the same task name has already existed in the category
+            
+            var i = 0
+            
+            repeat {
+                if (catAlert.textFields![0].text?.caseInsensitiveCompare(self.categoryList[i]) == .orderedSame) {
+                    self.unsuccessfulInput()
+                    break
+                }
+                i += 1
+            } while (i < self.categoryList.count)
+            
+            if (i == self.categoryList.count) {
+                self.successInput()
+            }
+            
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
         }))
         
         catAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         self.present(catAlert, animated: true, completion: nil)
     }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    func unsuccessfulInput() {
+        let validationAlert = UIAlertController(title: "Not Allowed", message: "You already have this category name!", preferredStyle: .alert)
+        validationAlert.setValue(NSAttributedString(string: "Not Allowed", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        validationAlert.setValue(NSAttributedString(string: "You already have this category name!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = validationAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        validationAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        validationAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(validationAlert, animated: true, completion: nil)
+    }
+    
+    func successInput() {
+        let successAlert = UIAlertController(title: "Success", message: "Successfully added category!", preferredStyle: .alert)
+        successAlert.setValue(NSAttributedString(string: "Success", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        successAlert.setValue(NSAttributedString(string: "Successfully added category!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = successAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        successAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        successAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(successAlert, animated: true, completion: nil)
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
     
     @IBOutlet weak var addBtn: UIButton!
     
@@ -102,7 +174,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //backgroundView.backgroundColor = UIColor(red: 0.522, green:0.78, blue: 0.949, alpha:1.0)
         backgroundView.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         //#85C7F2 baby blue
-        cell.taskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         
         cell.accessibilityIdentifier = "FirstViewCell_\(indexPath.row)"
         cell.selectedBackgroundView = backgroundView

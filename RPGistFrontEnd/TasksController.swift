@@ -78,12 +78,84 @@ class TasksController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //                taskRef.setValue(task)
 //                catRef.setValue(self.cellChosen)
 //            }
+            
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            
+            //Checking if the same task name has already existed in the category
+            
+            var i = 0
+            
+            repeat {
+                if (taskAlert.textFields![0].text?.caseInsensitiveCompare(self.chosenList[i]) == .orderedSame) {
+                    self.unsuccessfulInput()
+                    break
+                }
+                i += 1
+            } while (i < self.chosenList.count)
+            
+            if (i == self.chosenList.count) {
+                self.successInput()
+            }
+            
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
+            //*********************************************************//
         }))
         
         taskAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         self.present(taskAlert, animated: true, completion: nil)
     }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    func unsuccessfulInput() {
+        let validationAlert = UIAlertController(title: "Not Allowed", message: "You already have the same task name inside this category!", preferredStyle: .alert)
+        validationAlert.setValue(NSAttributedString(string: "Not Allowed", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        validationAlert.setValue(NSAttributedString(string: "You already have the same task name inside this category!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = validationAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        validationAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        validationAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(validationAlert, animated: true, completion: nil)
+    }
+    
+    func successInput() {
+        let successAlert = UIAlertController(title: "Success", message: "Successfully added task into this category!", preferredStyle: .alert)
+        successAlert.setValue(NSAttributedString(string: "Success", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedTitle")
+        successAlert.setValue(NSAttributedString(string: "Successfully added task into this category!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium), NSForegroundColorAttributeName : Model.get.textColours[indexChosen.mainColour]]), forKey: "attributedMessage")
+        
+        let subview1 = successAlert.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        view.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
+        view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        successAlert.view.tintColor = Model.get.textColours[indexChosen.mainColour]
+        
+        successAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(successAlert, animated: true, completion: nil)
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
     
     //swipe to remove task
     func tableView(_ taskView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

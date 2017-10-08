@@ -27,15 +27,29 @@ class PopupViewController: UIViewController{
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
         
+        self.notes.accessibilityIdentifier = "notes"
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.notes.backgroundColor = Model.get.extraColours1[indexChosen.mainColour]
         self.notes.textColor = Model.get.textColours[indexChosen.mainColour]
         self.notes.layer.cornerRadius = 10
         self.notes.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15)
-        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
-        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
-        
-        self.notes.accessibilityIdentifier = "notes"
+        self.saveBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
     }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
 }

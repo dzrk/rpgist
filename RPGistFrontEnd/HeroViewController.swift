@@ -114,18 +114,17 @@ class HeroViewController: UIViewController {
 //        self.ExpMultiplierLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         //To this:
         self.TotalExpLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        //*********************************************************//
-        
         self.LifetimeLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.LifetimeLbl2.textColor = Model.get.textColours[indexChosen.mainColour]
         self.TaskCountLbl.textColor = Model.get.textColours[indexChosen.mainColour]
-        self.ExpPgb.trackTintColor = Model.get.extraColours2[indexChosen.mainColour]
-        self.ExpPgb.progressTintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.ExpPgb.trackTintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.ExpPgb.progressTintColor = Model.get.extraColours2[indexChosen.mainColour]
+        
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
+        //*********************************************************//
         
         //This is to initialize theme colour, only exists in this class because this is the first controller called
         //Cannot be put on AppDelegate somehow (it seems that the appearance() funtion in the UITabBar works in a different way than the one in UINavigationBar)

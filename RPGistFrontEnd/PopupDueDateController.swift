@@ -27,11 +27,25 @@ class PopupDueDateController: UIViewController{
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
-        
+    }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.popupView.backgroundColor = Model.get.mainColours[indexChosen.mainColour]
         self.titleLbl.textColor = Model.get.textColours[indexChosen.mainColour]
         self.datePicker.setValue(Model.get.textColours[indexChosen.mainColour], forKey: "textColor")
-        self.saveBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
-        self.cancelBtn.tintColor = Model.get.extraColours1[indexChosen.mainColour]
+        self.saveBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
+        self.cancelBtn.tintColor = Model.get.textColours[indexChosen.mainColour]
     }
+    
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
+    //*********************************************************//
 }
